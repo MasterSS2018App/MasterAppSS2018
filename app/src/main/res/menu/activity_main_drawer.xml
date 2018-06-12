@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <item android:id="@+id/nav_home"
+            android:title="@string/nav_Home"
+            android:icon="@drawable/ic_menu_share"/>
+
+        <item android:id="@+id/nav_pc_room"
+            android:title="@string/nav_PcRooms"
+            android:icon="@drawable/ic_menu_share"/>
+
+        <item android:id="@+id/nav_classroom"
+            android:title="@string/nav_Classroom"
+            android:icon="@drawable/ic_menu_share"/>
+
+        <item android:id="@+id/nav_library"
+            android:title="@string/nav_Library"
+            android:icon="@drawable/ic_menu_share"/>
+
+        <item android:id="@+id/nav_food"
+            android:title="@string/nav_Food"
+            android:icon="@drawable/ic_menu_share"/>
+
+    </group>
+
+    <item android:title="Outside">
+        <menu>
+            <item android:id="@+id/nav_mvv"
+                android:title="@string/nav_MVV"
+                android:icon="@drawable/ic_menu_share"/>
+
+            <item android:id="@+id/nav_fun"
+                android:title="@string/nav_Fun"
+                android:icon="@drawable/ic_menu_share"/>
+
+            <item android:id="@+id/nav_maps"
+                android:title="@string/nav_GoogleMaps"
+                android:icon="@drawable/ic_menu_share"/>
+        </menu>
+    </item>
+
+</menu>
