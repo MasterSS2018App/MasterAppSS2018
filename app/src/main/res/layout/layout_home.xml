@@ -18,7 +18,7 @@
         android:layout_marginTop="8dp"
         android:background="@color/colorBackground"
         android:contentDescription="@string/nav_PcRooms"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton15"
+        app:layout_constraintBottom_toTopOf="@+id/btnLib"
         app:layout_constraintEnd_toStartOf="@+id/btn_classroom"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -36,14 +36,14 @@
         android:layout_marginTop="8dp"
         android:background="@color/colorBackground"
         android:contentDescription="@string/nav_Classroom"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton18"
+        app:layout_constraintBottom_toTopOf="@+id/btnFood"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btn_pcRoom"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/main_classroom_rund" />
 
     <ImageButton
-        android:id="@+id/imageButton18"
+        android:id="@+id/btnFood"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"
@@ -54,14 +54,14 @@
         android:layout_marginTop="8dp"
         android:background="@color/colorBackground"
         android:contentDescription="@string/nav_Food"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton17"
+        app:layout_constraintBottom_toTopOf="@+id/btnFun"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageButton15"
+        app:layout_constraintStart_toEndOf="@+id/btnLib"
         app:layout_constraintTop_toBottomOf="@+id/btn_classroom"
         app:srcCompat="@drawable/main_burger_rund" />
 
     <ImageButton
-        android:id="@+id/imageButton17"
+        android:id="@+id/btnFun"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"
@@ -74,12 +74,12 @@
         android:contentDescription="@string/nav_Fun"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageButton16"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton18"
+        app:layout_constraintStart_toEndOf="@+id/btnMvv"
+        app:layout_constraintTop_toBottomOf="@+id/btnFood"
         app:srcCompat="@drawable/main_bar_rund" />
 
     <ImageButton
-        android:id="@+id/imageButton16"
+        android:id="@+id/btnMvv"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"
@@ -91,14 +91,14 @@
         android:background="@color/colorBackground"
         android:contentDescription="@string/nav_Mvv"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton17"
+        app:layout_constraintEnd_toStartOf="@+id/btnFun"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton15"
+        app:layout_constraintTop_toBottomOf="@+id/btnLib"
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/main_mvv_rund" />
 
     <ImageButton
-        android:id="@+id/imageButton15"
+        android:id="@+id/btnLib"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"
@@ -109,8 +109,8 @@
         android:layout_marginTop="8dp"
         android:background="@color/colorBackground"
         android:contentDescription="@string/nav_Library"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton16"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton18"
+        app:layout_constraintBottom_toTopOf="@+id/btnMvv"
+        app:layout_constraintEnd_toStartOf="@+id/btnFood"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_classroom"
         app:srcCompat="@drawable/main_bib_rund" />

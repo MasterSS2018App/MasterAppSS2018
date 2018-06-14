@@ -11,24 +11,20 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.hm_master.masterapp.Fragment_Bib;
-import com.hm_master.masterapp.Fragment_Classroom;
-import com.hm_master.masterapp.Fragment_Food;
-import com.hm_master.masterapp.Fragment_Home;
-import com.hm_master.masterapp.Fragment_Mvv;
-import com.hm_master.masterapp.Fragment_Nigthlife;
-import com.hm_master.masterapp.Fragment_PCRoom;
-import com.hm_master.masterapp.R;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+
+    public static Toolbar toolbar;
+    public static MainActivity Instance;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+        Instance = this;
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -40,11 +36,10 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        //MenuItem item =(MenuItem) findViewById(R.id.nav_home);
-        //item.setChecked(true);
         FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction()
                 .replace(R.id.content_frame, new Fragment_Home()).commit();
+        getSupportActionBar().setTitle(R.string.nav_Home);
 
     }
 
@@ -61,7 +56,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        // getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
@@ -71,7 +66,6 @@ public class MainActivity extends AppCompatActivity
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -79,49 +73,76 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
-        int id = item.getItemId();
+       int id = item.getItemId();
+       return ChangeFragment(id);
+    }
+
+    public boolean ChangeFragment(int id) {
+
         FragmentManager fragmentManager = getFragmentManager();
-        if (id == R.id.nav_home) {
+        switch (id) {
 
-            fragmentManager.beginTransaction()
-                    .replace(R.id.content_frame, new Fragment_Home()).commit();
+            case (R.id.nav_home):
+            case (R.string.nav_Home):
+                fragmentManager.beginTransaction()
+                        .replace(R.id.content_frame, new Fragment_Home()).commit();
+                getSupportActionBar().setTitle(R.string.nav_Home);
+                break;
 
-        } else if (id == R.id.nav_pc_room) {
-            fragmentManager.beginTransaction()
-                    .replace(R.id.content_frame, new Fragment_PCRoom()).commit();
+            case (R.id.nav_pc_room):
+            case (R.string.nav_PcRooms):
+                fragmentManager.beginTransaction()
+                        .replace(R.id.content_frame, new Fragment_PCRoom()).commit();
+                getSupportActionBar().setTitle(R.string.nav_PcRooms);
+                break;
 
-        } else if (id == R.id.nav_classroom) {
+            case (R.id.nav_classroom):
+            case (R.string.nav_Classroom):
 
-            fragmentManager.beginTransaction()
-                    .replace(R.id.content_frame, new Fragment_Classroom()).commit();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.content_frame, new Fragment_Classroom()).commit();
+                getSupportActionBar().setTitle(R.string.nav_Classroom);
+                break;
 
-        } else if (id == R.id.nav_library) {
+            case (R.id.nav_library):
+            case (R.string.nav_Library):
 
-            fragmentManager.beginTransaction()
-                    .replace(R.id.content_frame, new Fragment_Bib()).commit();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.content_frame, new Fragment_Bib()).commit();
+                getSupportActionBar().setTitle(R.string.nav_Library);
+                break;
 
-        } else if (id == R.id.nav_food) {
+            case (R.id.nav_food):
+            case (R.string.nav_Food):
 
-            fragmentManager.beginTransaction()
-                    .replace(R.id.content_frame, new Fragment_Food()).commit();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.content_frame, new Fragment_Food()).commit();
+                getSupportActionBar().setTitle(R.string.nav_Food);
+                break;
 
-        } else if (id == R.id.nav_mvv) {
+            case (R.id.nav_mvv):
+            case (R.string.nav_Mvv):
 
-            fragmentManager.beginTransaction()
-                    .replace(R.id.content_frame, new Fragment_Mvv()).commit();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.content_frame, new Fragment_Mvv()).commit();
+                getSupportActionBar().setTitle(R.string.nav_Mvv);
+                break;
 
-        } else if (id == R.id.nav_fun) {
+            case (R.id.nav_fun):
+            case (R.string.nav_Fun):
+                fragmentManager.beginTransaction()
+                        .replace(R.id.content_frame, new Fragment_Nigthlife()).commit();
+                getSupportActionBar().setTitle(R.string.nav_Fun);
+                break;
 
-            fragmentManager.beginTransaction()
-                    .replace(R.id.content_frame, new Fragment_Nigthlife()).commit();
-
-        } else if (id == R.id.nav_maps) {
-
-            fragmentManager.beginTransaction()
-                    .replace(R.id.content_frame, new Fragment_PCRoom()).commit();
+            case (R.id.nav_maps):
+            case (R.string.nav_GoogleMaps):
+                fragmentManager.beginTransaction()
+                        .replace(R.id.content_frame, new Fragment_PCRoom()).commit();
+                getSupportActionBar().setTitle(R.string.nav_GoogleMaps);
+                break;
 
         }
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
