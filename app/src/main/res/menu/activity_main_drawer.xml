@@ -31,7 +31,7 @@
     <item android:title="Outside">
         <menu>
             <item android:id="@+id/nav_mvv"
-                android:title="@string/nav_MVV"
+                android:title="@string/nav_Mvv"
                 android:icon="@drawable/ic_menu_share"/>
 
             <item android:id="@+id/nav_fun"
