@@ -17,7 +17,6 @@ import static android.view.View.*;
 
 public class Fragment_Home extends Fragment{
     @Nullable
-
     View myView;
     Button btnPcRoom;
     Button btnClass;
@@ -84,6 +83,5 @@ public class Fragment_Home extends Fragment{
 
         return myView;
     }
-
 
 }
