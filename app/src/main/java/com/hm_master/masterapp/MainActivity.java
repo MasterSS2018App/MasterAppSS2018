@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity
 
     public static Toolbar toolbar;
     public static MainActivity Instance;
+    public static NavigationView navigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         FragmentManager fragmentManager = getFragmentManager();
@@ -74,12 +75,14 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
        int id = item.getItemId();
+       navigationView.setCheckedItem(id);
        return ChangeFragment(id);
     }
 
     public boolean ChangeFragment(int id) {
 
         FragmentManager fragmentManager = getFragmentManager();
+        MenuItem item;
         switch (id) {
 
             case (R.id.nav_home):
@@ -87,6 +90,7 @@ public class MainActivity extends AppCompatActivity
                 fragmentManager.beginTransaction()
                         .replace(R.id.content_frame, new Fragment_Home()).commit();
                 getSupportActionBar().setTitle(R.string.nav_Home);
+                item = findViewById(R.id.nav_home);
                 break;
 
             case (R.id.nav_pc_room):
