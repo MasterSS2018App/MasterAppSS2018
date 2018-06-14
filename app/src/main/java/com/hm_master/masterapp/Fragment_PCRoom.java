@@ -16,6 +16,7 @@ public class Fragment_PCRoom extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
         myView = inflater.inflate(R.layout.layout_pcroom,container,false);
+        MainActivity.Instance.getSupportActionBar().setTitle(R.string.nav_PcRooms);
         return myView;
     }
 }

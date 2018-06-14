@@ -30,6 +30,7 @@ public class Fragment_Home extends Fragment{
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
         myView = inflater.inflate(R.layout.layout_home, container, false);
+        MainActivity.Instance.getSupportActionBar().setTitle(R.string.nav_Home);
 
         btnPcRoom = myView.findViewById(R.id.btn_pcRoom);
         btnPcRoom.setOnClickListener(new View.OnClickListener(){

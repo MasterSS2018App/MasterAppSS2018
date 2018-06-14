@@ -17,6 +17,9 @@ public class Fragment_Bib extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
         View v= inflater.inflate(R.layout.layout_bib,container,false);
+        MainActivity.Instance.getSupportActionBar().setTitle(R.string.nav_Library);
+
+
         WebView webView= (WebView)v.findViewById(R.id.webViewbib);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setWebViewClient(new WebViewClient());

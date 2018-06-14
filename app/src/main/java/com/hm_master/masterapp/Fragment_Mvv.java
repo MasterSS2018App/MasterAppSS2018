@@ -14,18 +14,19 @@ package com.hm_master.masterapp;
 
 public class Fragment_Mvv extends Fragment {
 
-public Fragment_Mvv(){
+    public Fragment_Mvv() {
 
-}
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
-View v= inflater.inflate(R.layout.layout_mvv,container,false);
-WebView webView= (WebView)v.findViewById(R.id.webView);
-webView.getSettings().setJavaScriptEnabled(true);
-webView.setWebViewClient(new WebViewClient());
-webView.loadUrl("https://www.mvv-muenchen.de");
+        View v = inflater.inflate(R.layout.layout_mvv, container, false);
+        MainActivity.Instance.getSupportActionBar().setTitle(R.string.nav_Mvv);
+        WebView webView = (WebView) v.findViewById(R.id.webView);
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.setWebViewClient(new WebViewClient());
+        webView.loadUrl("https://www.mvv-muenchen.de");
         return v;
 
     }
