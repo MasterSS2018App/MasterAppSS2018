@@ -37,10 +37,9 @@ public class MainActivity extends AppCompatActivity
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        FragmentManager fragmentManager = getFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(R.id.content_frame, new Fragment_Home()).commit();
-        getSupportActionBar().setTitle(R.string.nav_Home);
+
+        MenuItem item = MainActivity.navigationView.getMenu().findItem(R.id.nav_home);
+        MainActivity.Instance.onNavigationItemSelected(item);
 
     }
 
@@ -89,8 +88,7 @@ public class MainActivity extends AppCompatActivity
             case (R.string.nav_Home):
                 fragmentManager.beginTransaction()
                         .replace(R.id.content_frame, new Fragment_Home()).commit();
-                getSupportActionBar().setTitle(R.string.nav_Home);
-                item = findViewById(R.id.nav_home);
+                getSupportActionBar().setTitle(R.string.actionText_HomeText);
                 break;
 
             case (R.id.nav_pc_room):
