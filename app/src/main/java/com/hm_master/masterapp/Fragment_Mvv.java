@@ -7,26 +7,27 @@ package com.hm_master.masterapp;
         import android.view.View;
         import android.view.ViewGroup;
         import android.webkit.WebView;
-        import android.webkit.WebSettings;
-
+        import android.app.Activity;
+        import android.os.Bundle;
+        import android.webkit.WebView;
+        import android.webkit.WebViewClient;
 
 public class Fragment_Mvv extends Fragment {
-    @Nullable
 
-    View myView;
+public Fragment_Mvv(){
+
+}
+
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
-        myView = inflater.inflate(R.layout.layout_mvv,container,false);
+View v= inflater.inflate(R.layout.layout_mvv,container,false);
+WebView webView= (WebView)v.findViewById(R.id.webView);
+webView.getSettings().setJavaScriptEnabled(true);
+webView.setWebViewClient(new WebViewClient());
+webView.loadUrl("https://www.mvv-muenchen.de");
+        return v;
 
-
-        WebView webView = (WebView) myView.findViewById(R.id.WebView_Mvv);
-
-        WebSettings webSettings = webView.getSettings();
-        webSettings.setJavaScriptEnabled(true);
-
-        webView.loadUrl("https://www.google.de");
-
-        return myView;
     }
+
 }
