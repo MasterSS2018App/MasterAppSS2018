@@ -1,6 +1,7 @@
 package com.hm_master.masterapp;
 
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -41,6 +42,12 @@ public class MainActivity extends AppCompatActivity
         MenuItem item = MainActivity.navigationView.getMenu().findItem(R.id.nav_home);
         MainActivity.Instance.onNavigationItemSelected(item);
 
+        /*
+        Debugging
+
+         */
+        MenuItem item2 = MainActivity.navigationView.getMenu().findItem(R.id.nav_pc_room);
+        MainActivity.Instance.onNavigationItemSelected(item2);
     }
 
     @Override
@@ -81,7 +88,7 @@ public class MainActivity extends AppCompatActivity
     public boolean ChangeFragment(int id) {
 
         FragmentManager fragmentManager = getFragmentManager();
-        MenuItem item;
+
         switch (id) {
 
             case (R.id.nav_home):
@@ -94,8 +101,12 @@ public class MainActivity extends AppCompatActivity
             case (R.id.nav_pc_room):
             case (R.string.nav_PcRooms):
 
-                getFragmentManager().beginTransaction().replace(R.id.content_frame, new Fragment_PCRoom())
+                fragmentManager.beginTransaction()
+                        .replace(R.id.content_frame, new Fragment_PCRoom())
                         .addToBackStack(null).commit();
+
+                //Intent intent = new Intent(this,Fragment_PCRoom.class);
+                //startActivity(intent);
                 break;
 
             case (R.id.nav_classroom):
@@ -139,7 +150,7 @@ public class MainActivity extends AppCompatActivity
             case (R.id.nav_maps):
             case (R.string.nav_GoogleMaps):
                 fragmentManager.beginTransaction()
-                        .replace(R.id.content_frame, new Fragment_PCRoom()).commit();
+                        .replace(R.id.content_frame, new Fragment_GoogleMaps ()).commit();
                 break;
 
         }
