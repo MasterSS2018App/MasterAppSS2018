@@ -144,7 +144,6 @@ public class MainActivity extends AppCompatActivity
                 getSupportActionBar().setTitle(R.string.nav_GoogleMaps);
                 break;
 
-
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
