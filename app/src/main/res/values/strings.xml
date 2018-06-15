@@ -24,4 +24,15 @@
     <!-- Tab Names -->
     <string name="tabList">Freie Räume</string>
     <string name="tabMap">Überischtskarte</string>
+
+
+    <!-- HM Map Button Text-->
+    <string name="radioUG">UG</string>
+    <string name="radioEG">EG</string>
+    <string name="radio1OG">OG-1</string>
+    <string name="radio2OG">OG-2</string>
+    <string name="radio3OG">OG-3</string>
+    <string name="radio4OG">OG-4</string>
+
+
 </resources>

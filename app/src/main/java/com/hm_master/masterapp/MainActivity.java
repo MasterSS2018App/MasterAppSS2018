@@ -1,10 +1,10 @@
 package com.hm_master.masterapp;
 
-import android.app.FragmentManager;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -14,12 +14,22 @@ import android.view.MenuItem;
 
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
-
+        implements NavigationView.OnNavigationItemSelectedListener{
 
     public static Toolbar toolbar;
     public static MainActivity Instance;
     public static NavigationView navigationView;
+
+    /**
+     * The {@link android.support.v4.view.PagerAdapter} that will provide
+     * fragments for each of the sections. We use a
+     * {@link FragmentPagerAdapter} derivative, which will keep every
+     * loaded fragment in memory. If this becomes too memory intensive, it
+     * may be best to switch to a
+     * {@link android.support.v4.app.FragmentStatePagerAdapter}.
+     */
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -38,6 +48,15 @@ public class MainActivity extends AppCompatActivity
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        // Tabs PcRoom
+
+        // Create the adapter that will return a fragment for each of the three
+        // primary sections of the activity.
+
+        // Tabs PcRoom
+
+        // Tabs Class Room
+        //mSectionsPagerAdapterClass = new SectionsPagerAdapter(getSupportFragmentManager(),R.string.nav_Classroom);
 
         MenuItem item = MainActivity.navigationView.getMenu().findItem(R.id.nav_home);
         MainActivity.Instance.onNavigationItemSelected(item);
@@ -46,8 +65,8 @@ public class MainActivity extends AppCompatActivity
         Debugging
 
          */
-        MenuItem item2 = MainActivity.navigationView.getMenu().findItem(R.id.nav_pc_room);
-        MainActivity.Instance.onNavigationItemSelected(item2);
+       MenuItem item2 = MainActivity.navigationView.getMenu().findItem(R.id.nav_pc_room);
+         MainActivity.Instance.onNavigationItemSelected(item2);
     }
 
     @Override
@@ -87,7 +106,7 @@ public class MainActivity extends AppCompatActivity
 
     public boolean ChangeFragment(int id) {
 
-        FragmentManager fragmentManager = getFragmentManager();
+        android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager ();
 
         switch (id) {
 
@@ -107,6 +126,7 @@ public class MainActivity extends AppCompatActivity
 
                 //Intent intent = new Intent(this,Fragment_PCRoom.class);
                 //startActivity(intent);
+
                 break;
 
             case (R.id.nav_classroom):
@@ -145,13 +165,20 @@ public class MainActivity extends AppCompatActivity
                 fragmentManager.beginTransaction()
                         .replace(R.id.content_frame, new Fragment_Nigthlife())
                         .addToBackStack(null).commit();
+
+                //Intent intent = new Intent(this,Fragment_PCRoom.class);
+                //startActivity(intent);
+
                 break;
 
             case (R.id.nav_maps):
             case (R.string.nav_GoogleMaps):
                 fragmentManager.beginTransaction()
-                        .replace(R.id.content_frame, new Fragment_GoogleMaps ()).commit();
+                        .replace(R.id.content_frame, new Fragment_GoogleMaps())
+                        .addToBackStack(null).commit();
                 break;
+
+
 
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

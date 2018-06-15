@@ -1,50 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:background="@color/colorBackground">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="@dimen/appbar_padding_top"
-
-        android:theme="@style/AppTheme.AppBarOverlay">
-
-        <android.support.design.widget.TabLayout
-            android:id="@+id/tabs"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimaryBright"
-            app:tabIndicatorColor="@color/TabIndexer">
-
-            <android.support.design.widget.TabItem
-                android:id="@+id/tabListPc"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/tabList" />
-
-            <android.support.design.widget.TabItem
-                android:id="@+id/tabMapPC"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/tabMap" />
-
-        </android.support.design.widget.TabLayout>
+        android:layout_height="wrap_content">
     </android.support.design.widget.AppBarLayout>
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/containerPcRoom"
+    <TextClock
+        android:id="@+id/clockPC"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="wrap_content"
+        android:format24Hour="kk:mm"
+        android:timeZone="Europe/Berlin"
+        android:gravity="top"
+        android:textAlignment="center"
+        android:textColor="@color/TabIndexer"
+        android:textSize="80sp"
+        android:visibility="visible"
+        />
 
-</android.support.constraint.ConstraintLayout>
+    <TextClock
+        android:id="@+id/datePC"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:format12Hour="EEEE, dd. MMMM yy"
+        android:timeZone="Europe/Berlin"
+        android:gravity="top"
+        android:textAlignment="center"
+        android:textColor="@color/TabIndexer"
+        android:textSize="18sp"
+        android:visibility="visible" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
+
+</LinearLayout>
