@@ -24,6 +24,8 @@
     <string name="nav_BKing">BurgerKing</string>
     <string name="nav_Subway">Subway</string>
     <string name="nav_Osteria">LOsteria</string>
+    <string name="btn_Opac">OPAC Online</string>
+
 
     <!-- Actionbar Text -->
     <string name="actionText_HomeText">"Wo willst du hin?</string>
