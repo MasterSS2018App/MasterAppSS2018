@@ -145,6 +145,7 @@ public class MainActivity extends AppCompatActivity
                 break;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             case (R.id.nav_stucafe):
             case (R.string.nav_stucafe):
@@ -154,6 +155,8 @@ public class MainActivity extends AppCompatActivity
                 break;
 
 >>>>>>> parent of 278cddb... food fragment weiter bearbeitet
+=======
+>>>>>>> parent of c7cfb8d... @strings ebarbeitet
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

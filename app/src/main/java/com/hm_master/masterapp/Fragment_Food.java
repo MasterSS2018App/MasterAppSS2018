@@ -21,7 +21,7 @@ public class Fragment_Food extends Fragment {
         btnStucafe = myView.findViewById(R.id.btn_stucafe);
         btnStucafe.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
-                MenuItem item = MainActivity.navigationView.getMenu().findItem(R.id.nav_stucafe);
+                MenuItem item = MainActivity.navigationView.getMenu().findItem(R.id.nav_pc_room);
                 MainActivity.Instance.onNavigationItemSelected(item);
             }
         });

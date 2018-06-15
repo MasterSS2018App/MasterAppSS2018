@@ -22,13 +22,12 @@
 <!-- Actionbar Text -->
 =======
     <string name="nav_McDonalds">McDonalds</string>
-    <string name="nav_StuCafe">StuCafe</string>
-    <string name="nav_K6">McDonalds</string>
-    <string name="nav_BKing">BurgerKing</string>
-    <string name="nav_Subway">Subway</string>
-    <string name="nav_Osteria">LOsteria</string>
 
+<<<<<<< HEAD
     <!-- Actionbar Text -->
 >>>>>>> parent of 708f417... test
+=======
+<!-- Actionbar Text -->
+>>>>>>> parent of c7cfb8d... @strings ebarbeitet
     <string name="actionText_HomeText">"Wo willst du hin?</string>
 </resources>
