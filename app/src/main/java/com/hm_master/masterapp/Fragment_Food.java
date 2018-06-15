@@ -52,7 +52,7 @@ public class Fragment_Food extends Fragment {
         btnMcdonalds = myView.findViewById(R.id.btnmcdonalds);
         btnMcdonalds.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
-                MenuItem item = MainActivity.navigationView.getMenu().findItem(R.id.nav_food);
+                MenuItem item = MainActivity.navigationView.getMenu().findItem(R.id.nav_mvv);
                 MainActivity.Instance.onNavigationItemSelected(item);
             }
         });
