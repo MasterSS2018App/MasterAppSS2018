@@ -144,19 +144,7 @@ public class MainActivity extends AppCompatActivity
                 getSupportActionBar().setTitle(R.string.nav_GoogleMaps);
                 break;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-            case (R.id.nav_stucafe):
-            case (R.string.nav_stucafe):
-                fragmentManager.beginTransaction()
-                        .replace(R.id.content_frame, new Fragment_Stucafe()).commit();
-                getSupportActionBar().setTitle(R.string.nav_Stucafe);
-                break;
 
->>>>>>> parent of 278cddb... food fragment weiter bearbeitet
-=======
->>>>>>> parent of c7cfb8d... @strings ebarbeitet
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

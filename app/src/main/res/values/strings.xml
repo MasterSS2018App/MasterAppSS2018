@@ -18,19 +18,13 @@
     <string name="nav_Fun">Fun</string>
     <string name="nav_GoogleMaps">Google Maps</string>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 <!-- Actionbar Text -->
-=======
+
     <string name="nav_McDonalds">McDonalds</string>
 
-<<<<<<< HEAD
+
     <!-- Actionbar Text -->
->>>>>>> parent of 708f417... test
-=======
-=======
->>>>>>> parent of cda06ce... food fragment
-<!-- Actionbar Text -->
->>>>>>> parent of c7cfb8d... @strings ebarbeitet
+
     <string name="actionText_HomeText">"Wo willst du hin?</string>
 </resources>
