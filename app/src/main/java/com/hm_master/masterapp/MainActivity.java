@@ -48,6 +48,9 @@ public class MainActivity extends AppCompatActivity
         MenuItem item2 = MainActivity.navigationView.getMenu().findItem(R.id.nav_pc_room);
         MainActivity.Instance.onNavigationItemSelected(item2);
          */
+
+        MenuItem item2 = MainActivity.navigationView.getMenu().findItem(R.id.nav_food);
+        MainActivity.Instance.onNavigationItemSelected(item2);
     }
 
     @Override
@@ -153,6 +156,10 @@ public class MainActivity extends AppCompatActivity
                         .replace(R.id.content_frame, new Fragment_GoogleMaps ()).commit();
                 break;
 
+            case (R.integer.food_k6):
+                fragmentManager.beginTransaction()
+                        .replace(R.id.content_frame, new Fragment_GoogleMaps ()).commit();
+                break;
 
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

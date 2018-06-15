@@ -23,6 +23,8 @@
     <!-- Food Text-->
     <string name="nav_McDonalds">McDonalds</string>
 
+    <integer name="food_k6">2</integer>
+
 
 
     <!-- Actionbar Text -->
