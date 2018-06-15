@@ -17,11 +17,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/stuca_156"
-<<<<<<< HEAD
         android:contentDescription="@string/nav_PcRooms"
-=======
-        android:contentDescription="@string/nav_StuCafe"
->>>>>>> phil
         app:layout_constraintBottom_toTopOf="@+id/btnbking"
         app:layout_constraintEnd_toStartOf="@+id/btn_k6"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,11 +34,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/k6_156"
-<<<<<<< HEAD
         android:contentDescription="@string/nav_Classroom"
-=======
-        android:contentDescription="@string/nav_K6"
->>>>>>> phil
         app:layout_constraintBottom_toTopOf="@+id/btnmcdonalds"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btn_stucafe"
@@ -59,11 +51,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/mcdonalds_runde_ecken_156"
-<<<<<<< HEAD
         android:contentDescription="@string/nav_Food"
-=======
-        android:contentDescription="@string/nav_McDonalds"
->>>>>>> phil
         app:layout_constraintBottom_toTopOf="@+id/btnosteria"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnbking"
@@ -80,11 +68,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/osteria_156"
-<<<<<<< HEAD
         android:contentDescription="@string/nav_Fun"
-=======
-        android:contentDescription="@string/nav_Osteria"
->>>>>>> phil
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnsubway"
@@ -101,11 +85,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/subway_156"
-<<<<<<< HEAD
         android:contentDescription="@string/nav_Mvv"
-=======
-        android:contentDescription="@string/nav_Subway"
->>>>>>> phil
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnosteria"
         app:layout_constraintStart_toStartOf="parent"
@@ -123,11 +103,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/bking_156"
-<<<<<<< HEAD
         android:contentDescription="@string/nav_Library"
-=======
-        android:contentDescription="@string/nav_BKing"
->>>>>>> phil
         app:layout_constraintBottom_toTopOf="@+id/btnsubway"
         app:layout_constraintEnd_toStartOf="@+id/btnmcdonalds"
         app:layout_constraintStart_toStartOf="parent"
