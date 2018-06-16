@@ -34,5 +34,14 @@
     <string name="radio3OG">OG-3</string>
     <string name="radio4OG">OG-4</string>
 
+    <!-- DB Datenbank Parameter -->
+    <integer name="KindPcRoom">1</integer>
+    <integer name="KindClassRoom">2</integer>
+
+    <integer name="WeekDay_Monday">1</integer>
+    <integer name="WeekDay_Tuesday">2</integer>
+    <integer name="WeekDay_Wednesday">3</integer>
+    <integer name="WeekDay_Thursday">4</integer>
+    <integer name="WeekDay_Friday">5</integer>
 
 </resources>

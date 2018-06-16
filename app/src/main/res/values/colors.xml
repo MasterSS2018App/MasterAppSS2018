@@ -9,4 +9,9 @@
 
     <!-- Tabindexer Markierung -->
     <color name="TabIndexer">#dcdcdc</color>
+
+
+    <!-- List Entry -->
+    <color name="colorEntryRoom">#ffffff</color>
+    <color name="colorEntryDetails">#bfbfbf</color>
 </resources>

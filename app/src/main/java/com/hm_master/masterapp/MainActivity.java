@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity
     public static Toolbar toolbar;
     public static MainActivity Instance;
     public static NavigationView navigationView;
-
+    public static DatabaseHelper SqLiteDB;
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
      * fragments for each of the sections. We use a
@@ -35,6 +35,8 @@ public class MainActivity extends AppCompatActivity
 
         super.onCreate(savedInstanceState);
         Instance = this;
+        SqLiteDB = new DatabaseHelper(this);
+
         setContentView(R.layout.activity_main);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
