@@ -20,17 +20,29 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.google.android.gms.maps.CameraUpdate;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener{
+        implements NavigationView.OnNavigationItemSelectedListener,OnMapReadyCallback {
 
     public static Toolbar toolbar;
     public static MainActivity Instance;
     public static NavigationView navigationView;
     public static DatabaseHelper SqLiteDB;
+    private GoogleMap mMap;
+    private List<String[]> mapLocations;
+
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
      * fragments for each of the sections. We use a
@@ -47,6 +59,8 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         Instance = this;
         SqLiteDB = new DatabaseHelper(this);
+        mapLocations = new ArrayList<>();
+        mapLocations.add(getResources().getStringArray(R.array.location_HM));
 
         setContentView(R.layout.activity_main);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -70,17 +84,16 @@ public class MainActivity extends AppCompatActivity
         calendar.setTimeInMillis(System.currentTimeMillis());
         AlarmManager alarm = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         alarm.cancel(pendingIntent);
-        alarm.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), 1000*60, pendingIntent);
+        alarm.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), 1000 * 60, pendingIntent);
 
 
         MenuItem item = MainActivity.navigationView.getMenu().findItem(R.id.nav_home);
         MainActivity.Instance.onNavigationItemSelected(item);
 
-        /*
-        Debugging
-        MenuItem item2 = MainActivity.navigationView.getMenu().findItem(R.id.nav_classroom);
-        MainActivity.Instance.onNavigationItemSelected(item2);
-        */
+        //Debugging
+        //MenuItem item2 = MainActivity.navigationView.getMenu().findItem(R.id.nav_food);
+        //MainActivity.Instance.onNavigationItemSelected(item2);
+
     }
 
     @Override
@@ -112,14 +125,14 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
-       int id = item.getItemId();
-       navigationView.setCheckedItem(id);
-       return ChangeFragment(id);
+        int id = item.getItemId();
+        navigationView.setCheckedItem(id);
+        return ChangeFragment(id);
     }
 
     public boolean ChangeFragment(int id) {
 
-        android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager ();
+        android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
 
         switch (id) {
 
@@ -174,11 +187,10 @@ public class MainActivity extends AppCompatActivity
             case (R.id.nav_fun):
             case (R.string.nav_Fun):
 
-                //fragmentManager.beginTransaction()
-                  //      .replace(R.id.content_frame, new Fragment_Nigthlife()).commit();
-                //getSupportActionBar().setTitle(R.string.nav_Fun);
-                Intent intent = new Intent (this, Activity_nightlife.class);
-                startActivity(intent);
+                fragmentManager.beginTransaction()
+                        .replace(R.id.content_frame, new Fragment_Nigthlife())
+                        .addToBackStack(null).commit();
+
                 break;
 
             case (R.id.nav_maps):
@@ -187,15 +199,68 @@ public class MainActivity extends AppCompatActivity
                         .replace(R.id.content_frame, new Fragment_GoogleMaps())
                         .addToBackStack(null).commit();
                 break;
-
-            case (R.integer.food_k6):
-                fragmentManager.beginTransaction()
-                        .replace(R.id.content_frame, new Fragment_GoogleMaps ()).commit();
-                break;
-
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
+        mMap.clear();
+        float zoomLevel = (float) 16.0;
+        LatLng location = new LatLng(48.142659, 11.568068);
+
+        for (String[] locationArray:mapLocations) {
+            String name = locationArray[0];
+            double lat = Double.parseDouble(locationArray[1]);
+            double lon = Double.parseDouble(locationArray[2]);
+            location = new LatLng(lat, lon);
+            mMap.addMarker(new MarkerOptions().position(location).title(name));
+        }
+
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location,zoomLevel));
+
+    }
+
+    public void changeMapMarker(String[] nameLatLon) {
+
+        mapLocations.clear();
+        mapLocations.add(nameLatLon);
+
+        if(mMap == null){
+            return;
+        }
+
+        float zoomLevel = (float) 16.0;
+
+        String[] locationHMArray = getResources().getStringArray(R.array.location_HM);
+        String name = nameLatLon[0];
+        double lat = Double.parseDouble(nameLatLon[1]);
+        double lon = Double.parseDouble(nameLatLon[2]);
+        LatLng loaction= new LatLng(lat, lon);
+
+        mMap.addMarker(new MarkerOptions().position(loaction).title(name));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(loaction,zoomLevel));
+    }
+
+    public void addMarker(String[] nameLatLon) {
+
+        mapLocations.add(nameLatLon);
+
+        if(mMap == null){
+            return;
+        }
+
+        String name = nameLatLon[0];
+        double lat = Double.parseDouble(nameLatLon[1]);
+        double lon = Double.parseDouble(nameLatLon[2]);
+
+        LatLng location = new LatLng(lat, lon);
+        mMap.addMarker(new MarkerOptions().position(location).title(name));
+        float zoomLevel = (float) 14.0;
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location,zoomLevel));
+    }
 }
+

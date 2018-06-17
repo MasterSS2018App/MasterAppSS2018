@@ -20,10 +20,10 @@ import java.util.Locale;
 public class TimeTableEntry {
 
 
-    public static String FULL_DATE_FORMAT_STRING = "EEEE dd.MMMM yy HH:MM";
+    public static String FULL_DATE_FORMAT_STRING = "EEEE dd.MMMM yy HH:mm";
     public static SimpleDateFormat FULL_DATE_FORMAT = new SimpleDateFormat(FULL_DATE_FORMAT_STRING, Locale.GERMANY);
 
-    public static String TIME_FORMAT_STRING = "HHMM";
+    public static String TIME_FORMAT_STRING = "HHmm";
     public static SimpleDateFormat TIME_FORMAT = new SimpleDateFormat(TIME_FORMAT_STRING, Locale.GERMANY);
 
     private static DatabaseHelper db = MainActivity.SqLiteDB;

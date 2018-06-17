@@ -17,7 +17,10 @@
         android:background="@drawable/main_pc_rund"
         android:contentDescription="@string/nav_PcRooms"
         android:text="@string/nav_PcRooms"
+        android:textAlignment="center"
         android:textColor="@color/colorButtonText"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/btnLib"
         app:layout_constraintEnd_toStartOf="@+id/btn_classroom"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,16 +33,20 @@
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="16dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/main_classroom_rund"
         android:contentDescription="@string/nav_Classroom"
+        android:text="@string/nav_Classroom"
+        android:textAlignment="center"
+        android:textColor="@color/colorButtonText"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/btnFood"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btn_pcRoom"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@string/nav_Classroom" />
 
     <Button
         android:id="@+id/btnFood"
@@ -47,16 +54,20 @@
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="16dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/main_burger_rund"
         android:contentDescription="@string/nav_Food"
+        android:text="@string/nav_Food"
+        android:textAlignment="center"
+        android:textColor="@color/colorButtonText"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/btnFun"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnLib"
-        app:layout_constraintTop_toBottomOf="@+id/btn_classroom" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_classroom"
+        tools:text="@string/nav_Food" />
 
     <Button
         android:id="@+id/btnFun"
@@ -64,16 +75,20 @@
         android:layout_height="0dp"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="16dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/main_bar_rund"
         android:contentDescription="@string/nav_Fun"
+        android:text="@string/nav_Fun"
+        android:textAlignment="center"
+        android:textColor="@color/colorButtonText"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnMvv"
-        app:layout_constraintTop_toBottomOf="@+id/btnFood" />
+        app:layout_constraintTop_toBottomOf="@+id/btnFood"
+        tools:text="@string/nav_Fun" />
 
     <Button
         android:id="@+id/btnMvv"
@@ -81,17 +96,21 @@
         android:layout_height="0dp"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="8dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/main_mvv_rund"
         android:contentDescription="@string/nav_Mvv"
+        android:text="@string/nav_Mvv"
+        android:textAlignment="center"
+        android:textColor="@color/colorButtonText"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnFun"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnLib"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="1.0"
+        tools:text="@string/nav_Mvv" />
 
     <Button
         android:id="@+id/btnLib"
@@ -99,15 +118,19 @@
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="8dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/main_bib_rund"
         android:contentDescription="@string/nav_Library"
+        android:text="@string/nav_Library"
+        android:textAlignment="center"
+        android:textColor="@color/colorButtonText"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/btnMvv"
         app:layout_constraintEnd_toStartOf="@+id/btnFood"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_pcRoom" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_pcRoom"
+        tools:text="@string/nav_Library" />
 
 </android.support.constraint.ConstraintLayout>

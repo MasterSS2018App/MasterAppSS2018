@@ -14,8 +14,8 @@
     <string name="nav_Classroom">Hörsäle</string>
     <string name="nav_Library">Bibliothek</string>
     <string name="nav_Food">Verpflegung</string>
-    <string name="nav_Mvv">MVV</string>
-    <string name="nav_Fun">Fun</string>
+    <string name="nav_Mvv">MVV-MVG</string>
+    <string name="nav_Fun">Nightlife</string>
     <string name="nav_GoogleMaps">Google Maps</string>
 
     <string name="SQLite_TimeFormat">EEEE dd.MMMM yy HH:MM</string>
@@ -23,7 +23,13 @@
     <!-- Food Text-->
     <string name="nav_McDonalds">McDonalds</string>
     <integer name="food_k6">2</integer>
-
+    <!-- Food Button Text-->
+    <string name="Food_StuCafe">Stu-Cafe</string>
+    <string name="Food_K6">K 6</string>
+    <string name="Food_BK">Burger King</string>
+    <string name="Food_MCD">Mc Donalds</string>
+    <string name="Food_Subway">Subway</string>
+    <string name="Food_losteria">L\'Osteria</string>
 
     <!-- Actionbar Text -->
     <string name="actionText_HomeText">Wo willst du hin?</string>
@@ -80,5 +86,57 @@
     <string name="title_activity__food__sub_way">Map</string>
     <string name="title_activity__food__losteria">Map</string>
     <string name="title_activity_maps_activityasd">Map</string>
+
+    <!-- HM Locations-->
+    <string-array name="location_HM">
+        <item>Hochschule München FK 08</item>
+        <item>48.142659</item>
+        <item>11.568068</item>
+    </string-array>
+
+    <!-- Nigthlife Locations-->
+    <string-array name="location_SweetClub">
+        <item>Sweet Club</item>
+        <item>48.1424805</item>
+        <item>11.5704762</item>
+    </string-array>
+
+    <!-- Food Locations-->
+    <!-- Stucafe Locations-->
+    <string-array name="location_StuCafe">
+        <item>Stu Cafe</item>
+        <item>48.1427996</item>
+        <item>11.5682816</item>
+    </string-array>
+    <!-- K6 Locations-->
+    <string-array name="location_K6">
+        <item>K6</item>
+        <item>48.1428809</item>
+        <item>11.5677528</item>
+    </string-array>
+    <!-- Burger King Locations-->
+    <string-array name="location_BK">
+        <item>Burger King</item>
+        <item>48.1393619</item>
+        <item>11.5611286</item>
+    </string-array>
+    <!-- MC Donalds Locations-->
+    <string-array name="location_Mc_Donalds">
+        <item>Mc Donalds</item>
+        <item>48.1388774</item>
+        <item>11.5642336</item>
+    </string-array>
+    <!-- Subway Locations-->
+    <string-array name="location_Subway">
+        <item>Subway</item>
+        <item>48.1405645</item>
+        <item>11.562416</item>
+    </string-array>
+    <!-- L'Osteria Locations-->
+    <string-array name="location_LOsteria">
+        <item>L\'Osteria</item>
+        <item>48.1402136</item>
+        <item>11.5655253</item>
+    </string-array>
 
 </resources>
