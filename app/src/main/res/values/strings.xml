@@ -18,13 +18,11 @@
     <string name="nav_Fun">Fun</string>
     <string name="nav_GoogleMaps">Google Maps</string>
 
-
+    <string name="SQLite_TimeFormat">EEEE dd.MMMM yy HH:MM</string>
 
     <!-- Food Text-->
     <string name="nav_McDonalds">McDonalds</string>
-
     <integer name="food_k6">2</integer>
-
 
 
     <!-- Actionbar Text -->
@@ -52,6 +50,27 @@
     <integer name="WeekDay_Thursday">4</integer>
     <integer name="WeekDay_Friday">5</integer>
 
+    <!-- List entries -->
+    <string name="entry_duration_std_min">Noch %d Std %d Min frei</string>
+    <string name="entry_duration_min">Noch %d Min frei</string>
+    <string name="entry_duration_std_min_future">In %d Std %d Min frei</string>
+    <string name="entry_duration_min_future">In %d Min frei</string>
+    <string name="entry_time_free">Bis %s Uhr frei</string>
+    <string name="entry_time_future">Ab %s Uhr bis %s Uhr frei</string>
+    <string name="entry_duration_string_noMoreEvents">Rest des Tages frei</string>
+    <string name="entry_time_string_noMoreEvents">...</string>
+    <string name="time_string_now">%1$d%2$d</string>
+
+    <!-- PcRooms -->
+    <string name="Room_DV6">dv6</string>
+    <string name="Room_DV7">dv7</string>
+    <string name="Room_DV8">dv8</string>
+    <!-- Classrooms -->
+    <string name="Room_HS21">HS21</string>
+    <string name="Room_HS115">HS115</string>
+    <string name="Room_HS222">HS222</string>
+
+
     <!-- Nightlife activity-->
     <string name="title_activity_nightlife">Map</string>
     <string name="title_activity__food__mcd">Map</string>
@@ -60,5 +79,6 @@
     <string name="title_activity__food__bk">Map</string>
     <string name="title_activity__food__sub_way">Map</string>
     <string name="title_activity__food__losteria">Map</string>
+    <string name="title_activity_maps_activityasd">Map</string>
 
 </resources>
