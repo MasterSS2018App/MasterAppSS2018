@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.GravityCompat;
-import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -49,16 +48,6 @@ public class MainActivity extends AppCompatActivity
 
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
-        // Tabs PcRoom
-
-        // Create the adapter that will return a fragment for each of the three
-        // primary sections of the activity.
-
-        // Tabs PcRoom
-
-        // Tabs Class Room
-        //mSectionsPagerAdapterClass = new SectionsPagerAdapter(getSupportFragmentManager(),R.string.nav_Classroom);
 
         MenuItem item = MainActivity.navigationView.getMenu().findItem(R.id.nav_home);
         MainActivity.Instance.onNavigationItemSelected(item);
