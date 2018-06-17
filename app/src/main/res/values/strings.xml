@@ -18,13 +18,21 @@
     <string name="nav_Fun">Fun</string>
     <string name="nav_GoogleMaps">Google Maps</string>
 
+
+
+    <!-- Food Text-->
+    <string name="nav_McDonalds">McDonalds</string>
+
+    <integer name="food_k6">2</integer>
+
+
+
     <!-- Actionbar Text -->
     <string name="actionText_HomeText">Wo willst du hin?</string>
 
     <!-- Tab Names -->
     <string name="tabList">Freie Räume</string>
     <string name="tabMap">Überischtskarte</string>
-
 
     <!-- HM Map Button Text-->
     <string name="radioUG">UG</string>
