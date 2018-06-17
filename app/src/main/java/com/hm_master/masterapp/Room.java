@@ -31,9 +31,9 @@ public class Room {
 
     public String getStatus(){
         if(isFree)
-            return "Jetzt";
+            return "Frei";
         else
-            return "Bald";
+            return "Belegt";
     }
 
 
@@ -48,8 +48,8 @@ public class Room {
     public String getTime() {
         if(nextEntrie == null)
             return MainActivity.Instance.getResources().getString(R.string.entry_time_string_noMoreEvents);
-        String timeStart = new SimpleDateFormat("HH:MM", Locale.GERMANY).format(nextEntrie.getStart().getTime());
-        String timeEnd = new SimpleDateFormat("HH:MM", Locale.GERMANY).format(nextEntrie.getEnd().getTime());
+        String timeStart = new SimpleDateFormat("HH:mm", Locale.GERMANY).format(nextEntrie.getStart().getTime());
+        String timeEnd = new SimpleDateFormat("HH:mm", Locale.GERMANY).format(nextEntrie.getEnd().getTime());
         if (isFree)
             return MainActivity.Instance.getResources().getString(R.string.entry_time_free, timeStart);
         else

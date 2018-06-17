@@ -50,10 +50,10 @@ public class CustomListAdapter extends ArrayAdapter<Room> {
 
         ViewHolder holder;
 
-        if(convertView == null){
+        if (convertView == null) {
 
             LayoutInflater inflater = LayoutInflater.from(getContext());
-            convertView = inflater.inflate(R.layout.layout_lstentry,parent, false);
+            convertView = inflater.inflate(R.layout.layout_lstentry, parent, false);
 
             holder = new ViewHolder();
             holder.position = position;
@@ -63,13 +63,17 @@ public class CustomListAdapter extends ArrayAdapter<Room> {
             holder.textView_freeQ = (TextView) convertView.findViewById(R.id.entry_When);
 
             convertView.setTag(holder);
-        }
-        else {
+        } else {
             holder = (ViewHolder) convertView.getTag();
         }
 
         Room entry = getItem(position);
 
+        int freeQHighlightColor =  getContext().getResources().getColor(R.color.colorEntryDetails);
+        if (!entry.isFree)
+            freeQHighlightColor = getContext().getResources().getColor(R.color.colorRoomNotFree);
+
+        holder.textView_freeQ.setTextColor(freeQHighlightColor);
         holder.textView_freeQ.setText(entry.getStatus());
         holder.textView_RoomName.setText(entry.getName());
         holder.textView_Duration.setText(entry.getDuration());
