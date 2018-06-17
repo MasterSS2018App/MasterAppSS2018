@@ -1,5 +1,7 @@
 package com.hm_master.masterapp;
 
+import android.content.Intent;
+
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -155,12 +157,17 @@ public class MainActivity extends AppCompatActivity
 
             case (R.id.nav_fun):
             case (R.string.nav_Fun):
-                fragmentManager.beginTransaction()
-                        .replace(R.id.content_frame, new Fragment_Nigthlife())
-                        .addToBackStack(null).commit();
 
-                //Intent intent = new Intent(this,Fragment_PCRoom.class);
-                //startActivity(intent);
+
+
+                //fragmentManager.beginTransaction()
+                  //      .replace(R.id.content_frame, new Fragment_Nigthlife()).commit();
+                //getSupportActionBar().setTitle(R.string.nav_Fun);
+                Intent intent = new Intent (this, Activity_nightlife.class);
+                startActivity(intent);
+
+
+
 
                 break;
 

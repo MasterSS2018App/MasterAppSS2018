@@ -52,4 +52,13 @@
     <integer name="WeekDay_Thursday">4</integer>
     <integer name="WeekDay_Friday">5</integer>
 
+    <!-- Nightlife activity-->
+    <string name="title_activity_nightlife">Map</string>
+    <string name="title_activity__food__mcd">Map</string>
+    <string name="title_activity__food__k6">Map</string>
+    <string name="title_activity__food__stu_cafe">Map</string>
+    <string name="title_activity__food__bk">Map</string>
+    <string name="title_activity__food__sub_way">Map</string>
+    <string name="title_activity__food__losteria">Map</string>
+
 </resources>
