@@ -61,14 +61,11 @@ public class Fragment_PCRoom_List extends Fragment {
         }
         catch (Exception ex){}
 
-
-        String time = new SimpleDateFormat("hh:mm", Locale.GERMANY).format(selectedDate);
-        String tdate = new SimpleDateFormat("dd.MMMM yy", Locale.GERMANY).format(selectedDate);
-        String tday  = new SimpleDateFormat("EEEE",Locale.GERMANY).format(selectedDate);
-
+        String time = TimeTableEntry.FULL_CLOCK_FORMAT.format(selectedDate);
+        String tdate = TimeTableEntry.FULL_DATE_FORMAT.format(selectedDate);
 
         textClock.setText(time);
-        textDate.setText(tday + ", " + tdate);
+        textDate.setText(tdate);
 
 
        CustomListAdapter adapter =

@@ -19,12 +19,11 @@ import java.util.Locale;
 
 public class TimeTableEntry {
 
-
-    public static String FULL_DATE_FORMAT_STRING = "EEEE dd.MMMM yy HH:mm";
+    private static String FULL_DATE_FORMAT_STRING = "EEEE, dd. MMMM yy";
     public static SimpleDateFormat FULL_DATE_FORMAT = new SimpleDateFormat(FULL_DATE_FORMAT_STRING, Locale.GERMANY);
+    public static SimpleDateFormat FULL_CLOCK_FORMAT = new SimpleDateFormat("HH:mm", Locale.GERMANY);
 
-    public static String TIME_FORMAT_STRING = "HHmm";
-    public static SimpleDateFormat TIME_FORMAT = new SimpleDateFormat(TIME_FORMAT_STRING, Locale.GERMANY);
+    private static SimpleDateFormat DB_TIME_FORMAT = new SimpleDateFormat("HHmm", Locale.GERMANY);
 
     private static DatabaseHelper db = MainActivity.SqLiteDB;
 
@@ -67,8 +66,8 @@ public class TimeTableEntry {
         String EndString = cursor.getString(cursor.getColumnIndex(COLUMN_END));
 
         try {
-            Start = TimeTableEntry.TIME_FORMAT.parse(StartString);
-            End = TimeTableEntry.TIME_FORMAT.parse(EndString);
+            Start = TimeTableEntry.DB_TIME_FORMAT.parse(StartString);
+            End = TimeTableEntry.DB_TIME_FORMAT.parse(EndString);
         } catch (Exception ex) {
             Start = null;
             End = null;
