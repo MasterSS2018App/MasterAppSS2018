@@ -28,6 +28,7 @@ public class Fragment_HM_Map extends Fragment {
             myView = inflater.inflate(R.layout.layout_hm_map,container,false);
 
         hmMap = myView.findViewById(R.id.imageHmMap);
+        hmMap.setImageResource(R.drawable.eghm);
 
         radioGroup = myView.findViewById(R.id.RadioGroupHmMap);
         radioUG = (RadioButton) myView.findViewById(R.id.radioUG);
@@ -86,7 +87,6 @@ public class Fragment_HM_Map extends Fragment {
 
          if(hmMap== null)
              return;
-
          switch (id){
 
              case(R.id.radioUG):
