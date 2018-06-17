@@ -1,6 +1,5 @@
 package com.hm_master.masterapp;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
@@ -13,14 +12,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.StringTokenizer;
 
 public class DatabaseHelper extends SQLiteOpenHelper{
-    public static DatabaseHelper Instance;
-
     private static final String TAG = "DatabaseHelper";
 
     // Database Version
@@ -42,6 +35,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         {
             DATABASE_PATH = "/data/data/" + context.getPackageName() + "/databases/";
         }
+
         this.mContext = context;
     }
 
@@ -96,9 +90,18 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     {
         String mPath = DATABASE_PATH + DATABASE_NAME;
         //Log.v("mPath", mPath);
-        db = SQLiteDatabase.openDatabase(mPath, null, SQLiteDatabase.CREATE_IF_NECESSARY);
-        //mDataBase = SQLiteDatabase.openDatabase(mPath, null, SQLiteDatabase.NO_LOCALIZED_COLLATORS);
-        return db != null;
+        try {
+            if(!checkDataBase())
+                createDataBase();
+
+            db = SQLiteDatabase.openDatabase(mPath, null, SQLiteDatabase.CREATE_IF_NECESSARY);
+            //db  = SQLiteDatabase.openDatabase(mPath, null, SQLiteDatabase.NO_LOCALIZED_COLLATORS);
+            return db != null;
+        }
+        catch(Exception e)  {
+
+        }
+        return false;
     }
 
 
@@ -111,7 +114,8 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         try {
             // Tabelle anlegen
             // create notes table
-            db.execSQL(TimeTableEntry.CREATE_TABLE);
+            //db.execSQL(TimeTableEntry.CREATE_TABLE);
+            createDataBase();
         }
         catch(Exception ex) {
             Log.e("gehtfxs", ex.getMessage());
@@ -140,8 +144,8 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     public Cursor GetTableEntries(String table,String selection,String orderBy){
 
         // get readable database as we are not inserting anything
-
-        SQLiteDatabase db = this.getReadableDatabase();
+        openDataBase();
+        //db = this.getReadableDatabase();
 
         Cursor cursor;
         if(selection != null)
@@ -152,7 +156,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
             cursor = db.query(table,
                     null, null, null, null, null, null);
 
+   //     close();
         return cursor;
     }
-
 }

@@ -69,6 +69,7 @@ public class TimeTableEntry {
 
         List<TimeTableEntry> entries = new ArrayList<TimeTableEntry>();
         Cursor cursor;
+        db.openDataBase();
         switch (weekday){
             case(R.integer.WeekDay_Monday):
                 cursor = db.GetTableEntries(TABLE_NAME,"1",COLUMN_START);
@@ -88,9 +89,16 @@ public class TimeTableEntry {
                 default:
                     cursor = db.GetTableEntries(TABLE_NAME,null,COLUMN_START);
         }
-        while (cursor.moveToNext()){
-            entries.add(new TimeTableEntry(cursor));
+
+        if (cursor.getCount() > 0) {
+            while (cursor.moveToNext()) {
+                entries.add(new TimeTableEntry(cursor));
+            }
         }
+        if(cursor != null && !cursor.isClosed())
+            cursor.close();
+
+        db.close();
         return  entries;
     }
 
