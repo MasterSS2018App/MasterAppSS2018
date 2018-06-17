@@ -1,6 +1,7 @@
 package com.hm_master.masterapp;
 
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -132,9 +133,16 @@ public class MainActivity extends AppCompatActivity
 
             case (R.id.nav_fun):
             case (R.string.nav_Fun):
-                fragmentManager.beginTransaction()
-                        .replace(R.id.content_frame, new Fragment_Nigthlife()).commit();
-                getSupportActionBar().setTitle(R.string.nav_Fun);
+
+
+                //fragmentManager.beginTransaction()
+                  //      .replace(R.id.content_frame, new Fragment_Nigthlife()).commit();
+                //getSupportActionBar().setTitle(R.string.nav_Fun);
+                Intent intent = new Intent (this, Activity_nightlife.class);
+                startActivity(intent);
+
+
+
                 break;
 
             case (R.id.nav_maps):

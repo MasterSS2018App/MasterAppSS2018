@@ -19,7 +19,7 @@
     <string name="nav_GoogleMaps">Google Maps</string>
 
 
-<!-- Actionbar Text -->
+    <!-- Actionbar Text -->
 
     <string name="nav_McDonalds">McDonalds</string>
 
@@ -27,4 +27,11 @@
     <!-- Actionbar Text -->
 
     <string name="actionText_HomeText">"Wo willst du hin?</string>
+    <string name="title_activity_nightlife">Map</string>
+    <string name="title_activity__food__mcd">Map</string>
+    <string name="title_activity__food__k6">Map</string>
+    <string name="title_activity__food__stu_cafe">Map</string>
+    <string name="title_activity__food__bk">Map</string>
+    <string name="title_activity__food__sub_way">Map</string>
+    <string name="title_activity__food__losteria">Map</string>
 </resources>

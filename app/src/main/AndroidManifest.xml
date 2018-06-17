@@ -2,16 +2,22 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.hm_master.masterapp">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the 'MyLocation' functionality. 
+    -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <application
-    android:allowBackup="true"
+        android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
@@ -22,6 +28,39 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/. 
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:name=".Activity_nightlife"
+            android:label="@string/title_activity_nightlife" />
+        <activity
+            android:name=".Activity_Food_MCD"
+            android:label="@string/title_activity__food__mcd" />
+        <activity
+            android:name=".Activity_Food_K6"
+            android:label="@string/title_activity__food__k6" />
+        <activity
+            android:name=".Activity_Food_StuCafe"
+            android:label="@string/title_activity__food__stu_cafe" />
+        <activity
+            android:name=".Activity_Food_BK"
+            android:label="@string/title_activity__food__bk" />
+        <activity
+            android:name=".Activity_Food_SubWay"
+            android:label="@string/title_activity__food__sub_way" />
+        <activity
+            android:name=".Activity_Food_Losteria"
+            android:label="@string/title_activity__food__losteria"></activity>
     </application>
 
 </manifest>
