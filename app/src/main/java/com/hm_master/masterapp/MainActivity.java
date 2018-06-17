@@ -1,5 +1,8 @@
 package com.hm_master.masterapp;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 
 import android.os.Bundle;
@@ -12,6 +15,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
+
+import java.util.Calendar;
+import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity
@@ -51,17 +61,26 @@ public class MainActivity extends AppCompatActivity
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        // Register Timclock , so List changes every minute
+        Intent intent = new Intent(getApplicationContext(), AlarmReceiver.class);
+        intent.setAction("packagename.ACTION");
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(),
+                0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        AlarmManager alarm = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        alarm.cancel(pendingIntent);
+        alarm.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), 1000*60, pendingIntent);
+
+
         MenuItem item = MainActivity.navigationView.getMenu().findItem(R.id.nav_home);
         MainActivity.Instance.onNavigationItemSelected(item);
 
         /*
         Debugging
-
-       MenuItem item2 = MainActivity.navigationView.getMenu().findItem(R.id.nav_pc_room);
-         MainActivity.Instance.onNavigationItemSelected(item2);
-
-         */
-
+        MenuItem item2 = MainActivity.navigationView.getMenu().findItem(R.id.nav_classroom);
+        MainActivity.Instance.onNavigationItemSelected(item2);
+        */
     }
 
     @Override
@@ -86,7 +105,6 @@ public class MainActivity extends AppCompatActivity
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
         return super.onOptionsItemSelected(item);
     }
 
@@ -118,10 +136,6 @@ public class MainActivity extends AppCompatActivity
                 fragmentManager.beginTransaction()
                         .replace(R.id.content_frame, new Fragment_PCRoom())
                         .addToBackStack(null).commit();
-
-                //Intent intent = new Intent(this,Fragment_PCRoom.class);
-                //startActivity(intent);
-
                 break;
 
             case (R.id.nav_classroom):
@@ -138,6 +152,8 @@ public class MainActivity extends AppCompatActivity
                 fragmentManager.beginTransaction()
                         .replace(R.id.content_frame, new Fragment_Bib())
                         .addToBackStack(null).commit();
+
+                break;
 
             case (R.id.nav_food):
             case (R.string.nav_Food):
@@ -158,17 +174,11 @@ public class MainActivity extends AppCompatActivity
             case (R.id.nav_fun):
             case (R.string.nav_Fun):
 
-
-
                 //fragmentManager.beginTransaction()
                   //      .replace(R.id.content_frame, new Fragment_Nigthlife()).commit();
                 //getSupportActionBar().setTitle(R.string.nav_Fun);
                 Intent intent = new Intent (this, Activity_nightlife.class);
                 startActivity(intent);
-
-
-
-
                 break;
 
             case (R.id.nav_maps):
@@ -182,7 +192,6 @@ public class MainActivity extends AppCompatActivity
                 fragmentManager.beginTransaction()
                         .replace(R.id.content_frame, new Fragment_GoogleMaps ()).commit();
                 break;
-
 
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

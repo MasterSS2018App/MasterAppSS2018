@@ -141,22 +141,21 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         super.close();
     }
 
-    public Cursor GetTableEntries(String table,String selection,String orderBy){
+    public Cursor GetTableEntries(String table,String selection,String[] selectionValue,String orderBy){
 
         // get readable database as we are not inserting anything
         openDataBase();
-        //db = this.getReadableDatabase();
 
         Cursor cursor;
         if(selection != null)
-        cursor = db.query(table,
-                null, selection, null, null, null, orderBy);
-        else
 
+        cursor = db.query(table,
+                null, selection, selectionValue, null, null, orderBy);
+        else
             cursor = db.query(table,
                     null, null, null, null, null, null);
 
-   //     close();
+        //     close();
         return cursor;
     }
 }

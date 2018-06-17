@@ -1,30 +1,21 @@
 package com.hm_master.masterapp;
 
-import android.content.BroadcastReceiver;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
-import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
-import android.widget.TextClock;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-import java.util.TimeZone;
 
 
-public class Fragment_PCRoom_List extends Fragment {
+public class Fragment_ClassRoom_List extends Fragment {
     static View myView;
 
     Calendar currentTime;
@@ -35,21 +26,21 @@ public class Fragment_PCRoom_List extends Fragment {
     List<TimeTableEntry> entries;
     Date selectedDate;
 
-    public static Fragment_PCRoom_List Instance;
+    public static Fragment_ClassRoom_List Instance;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         if(myView == null)
-            myView = inflater.inflate(R.layout.layout_pcroom_list,container,false);
+            myView = inflater.inflate(R.layout.layout_classroom_list,container,false);
 
         Instance = this;
-        ListView lstFreeRooms = myView.findViewById(R.id.lst_pc);
+        ListView lstFreeRooms = myView.findViewById(R.id.lst_class);
 
 
         currentTime = Calendar.getInstance();
 
-        textClock = myView.findViewById(R.id.clockPC);
-        textDate = myView.findViewById(R.id.datePC);
+        textClock = myView.findViewById(R.id.clockClass);
+        textDate = myView.findViewById(R.id.dateClass);
 
         //String selectedDateString = currentTime.getTime();
 
@@ -72,7 +63,7 @@ public class Fragment_PCRoom_List extends Fragment {
 
 
        CustomListAdapter adapter =
-               new CustomListAdapter(MainActivity.Instance,Room.GetRooms(R.integer.KindPcRoom ,selectedDate));
+               new CustomListAdapter(MainActivity.Instance,Room.GetRooms(R.integer.KindClassRoom ,selectedDate));
        lstFreeRooms.setAdapter(adapter);
 
         return myView;
@@ -86,10 +77,10 @@ public class Fragment_PCRoom_List extends Fragment {
 
     public void Refresh() {
 
-        ListView lstFreeRooms = myView.findViewById(R.id.lst_pc);
+        ListView lstFreeRooms = myView.findViewById(R.id.lst_class);
 
         CustomListAdapter adapter =
-                new CustomListAdapter(MainActivity.Instance,Room.GetRooms(R.integer.KindPcRoom ,selectedDate));
+                new CustomListAdapter(MainActivity.Instance,Room.GetRooms(R.integer.KindClassRoom ,selectedDate));
         lstFreeRooms.setAdapter(adapter);
     }
 }

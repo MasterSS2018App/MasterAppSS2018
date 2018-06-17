@@ -13,7 +13,7 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/clockPC"
+            android:id="@+id/clockClass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView"
@@ -25,7 +25,7 @@
             tools:text="21:45" />
 
         <TextView
-            android:id="@+id/datePC"
+            android:id="@+id/dateClass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView"
@@ -37,7 +37,7 @@
     </android.support.design.widget.AppBarLayout>
 
     <ListView
-        android:id="@+id/lst_pc"
+        android:id="@+id/lst_class"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 

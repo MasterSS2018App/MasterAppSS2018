@@ -44,21 +44,20 @@ public class SectionsPagerAdapter extends FragmentStatePagerAdapter {
                     case(1):
                         //return new Fragment_HM_Map();
                         return Fragment_PCRoom.fragHMMap;
-
                 }
+                break;
 
             case(R.string.nav_Classroom):
 
                 switch (position)
                 {
                     case(0):
-                        return new Fragment_PCRoom_List();
+                        return Fragment_Classroom.fragListClass;
 
                     case(1):
-                        return new Fragment_HM_Map();
-                    default:
-                        return null;
+                        return Fragment_Classroom.fragHMMap;
                 }
+                break;
         }
         return null;
     }
