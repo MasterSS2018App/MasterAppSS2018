@@ -1,34 +1,50 @@
 package com.hm_master.masterapp;
 
-import android.app.Fragment;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class Fragment_PCRoom extends Fragment {
 
-    private static View myVIew;
-    private com.hm_master.masterapp.FragmentTabHost mTabHost;
+public class Fragment_PCRoom extends Fragment {
+    static View myView;
+
+    public static Fragment fragListPc;
+    public static Fragment fragHMMap;
+
+    /**
+     * The {@link ViewPager} that will host the section contents.
+     */
+    public ViewPager mViewPager;
+    public SectionsPagerAdapter mSectionsPagerAdapterPC;
+    TabLayout tabLayoutPc;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        if (myVIew == null) {
-            myVIew = inflater.inflate(R.layout.layout_pcroom, container, false);
 
-            mTabHost = (FragmentTabHost) myVIew.findViewById(android.R.id.tabhost);
-            mTabHost.setup(MainActivity.Instance, getChildFragmentManager(), R.id.realtabcontent);
+            myView = inflater.inflate(R.layout.layout_pcroom, container, false);
 
-            mTabHost.addTab(mTabHost.newTabSpec("tab1").setIndicator("Tab1"), Fragment_PCRoom_List.class, null);
-            mTabHost.addTab(mTabHost.newTabSpec("tab2").setIndicator("Tab2"), Fragment_PCRoom_Map.class, null);
-        }
-        return myVIew;
+            MainActivity mainActivity = MainActivity.Instance;
+
+            mainActivity.getSupportActionBar().setTitle(R.string.nav_PcRooms);
+
+            mSectionsPagerAdapterPC = new SectionsPagerAdapter(getChildFragmentManager(),R.string.nav_PcRooms);
+
+            // Set up the ViewPager with the sections adapter.
+            tabLayoutPc = myView.findViewById(R.id.tabPc);
+            mViewPager = (ViewPager) myView.findViewById(R.id.viewerPc);
+            tabLayoutPc.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
+            mViewPager.setAdapter(mSectionsPagerAdapterPC);
+            tabLayoutPc.setupWithViewPager(mViewPager);
+
+            fragListPc = new Fragment_PCRoom_List();
+            fragHMMap = new Fragment_HM_Map();
+        return myView;
     }
 
-    public static Fragment_PCRoom newInstance() {
-        Fragment_PCRoom fragment = new Fragment_PCRoom();
-        return fragment;
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

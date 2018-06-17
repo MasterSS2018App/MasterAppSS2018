@@ -12,16 +12,17 @@
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="8dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/main_pc_rund"
         android:contentDescription="@string/nav_PcRooms"
+        android:text="@string/nav_PcRooms"
+        android:textColor="@color/colorButtonText"
         app:layout_constraintBottom_toTopOf="@+id/btnLib"
         app:layout_constraintEnd_toStartOf="@+id/btn_classroom"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@string/nav_PcRooms" />
 
     <Button
         android:id="@+id/btn_classroom"
