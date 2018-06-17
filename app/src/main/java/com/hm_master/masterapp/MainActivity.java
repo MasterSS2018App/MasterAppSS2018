@@ -1,10 +1,12 @@
 package com.hm_master.masterapp;
 
-import android.app.FragmentManager;
 import android.content.Intent;
+
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -14,17 +16,29 @@ import android.view.MenuItem;
 
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
-
+        implements NavigationView.OnNavigationItemSelectedListener{
 
     public static Toolbar toolbar;
     public static MainActivity Instance;
     public static NavigationView navigationView;
+    public static DatabaseHelper SqLiteDB;
+    /**
+     * The {@link android.support.v4.view.PagerAdapter} that will provide
+     * fragments for each of the sections. We use a
+     * {@link FragmentPagerAdapter} derivative, which will keep every
+     * loaded fragment in memory. If this becomes too memory intensive, it
+     * may be best to switch to a
+     * {@link android.support.v4.app.FragmentStatePagerAdapter}.
+     */
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         Instance = this;
+        SqLiteDB = new DatabaseHelper(this);
+
         setContentView(R.layout.activity_main);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -38,9 +52,26 @@ public class MainActivity extends AppCompatActivity
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        // Tabs PcRoom
+
+        // Create the adapter that will return a fragment for each of the three
+        // primary sections of the activity.
+
+        // Tabs PcRoom
+
+        // Tabs Class Room
+        //mSectionsPagerAdapterClass = new SectionsPagerAdapter(getSupportFragmentManager(),R.string.nav_Classroom);
 
         MenuItem item = MainActivity.navigationView.getMenu().findItem(R.id.nav_home);
         MainActivity.Instance.onNavigationItemSelected(item);
+
+        /*
+        Debugging
+
+       MenuItem item2 = MainActivity.navigationView.getMenu().findItem(R.id.nav_pc_room);
+         MainActivity.Instance.onNavigationItemSelected(item2);
+
+         */
 
     }
 
@@ -81,58 +112,63 @@ public class MainActivity extends AppCompatActivity
 
     public boolean ChangeFragment(int id) {
 
-        FragmentManager fragmentManager = getFragmentManager();
-        MenuItem item;
+        android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager ();
+
         switch (id) {
 
             case (R.id.nav_home):
             case (R.string.nav_Home):
                 fragmentManager.beginTransaction()
-                        .replace(R.id.content_frame, new Fragment_Home()).commit();
-                getSupportActionBar().setTitle(R.string.actionText_HomeText);
+                        .replace(R.id.content_frame, new Fragment_Home())
+                        .addToBackStack(null).commit();
                 break;
 
             case (R.id.nav_pc_room):
             case (R.string.nav_PcRooms):
+
                 fragmentManager.beginTransaction()
-                        .replace(R.id.content_frame, new Fragment_PCRoom()).commit();
-                getSupportActionBar().setTitle(R.string.nav_PcRooms);
+                        .replace(R.id.content_frame, new Fragment_PCRoom())
+                        .addToBackStack(null).commit();
+
+                //Intent intent = new Intent(this,Fragment_PCRoom.class);
+                //startActivity(intent);
+
                 break;
 
             case (R.id.nav_classroom):
             case (R.string.nav_Classroom):
 
                 fragmentManager.beginTransaction()
-                        .replace(R.id.content_frame, new Fragment_Classroom()).commit();
-                getSupportActionBar().setTitle(R.string.nav_Classroom);
+                        .replace(R.id.content_frame, new Fragment_Classroom())
+                        .addToBackStack(null).commit();
                 break;
 
             case (R.id.nav_library):
             case (R.string.nav_Library):
 
                 fragmentManager.beginTransaction()
-                        .replace(R.id.content_frame, new Fragment_Bib()).commit();
-                getSupportActionBar().setTitle(R.string.nav_Library);
-                break;
+                        .replace(R.id.content_frame, new Fragment_Bib())
+                        .addToBackStack(null).commit();
 
             case (R.id.nav_food):
             case (R.string.nav_Food):
 
                 fragmentManager.beginTransaction()
-                        .replace(R.id.content_frame, new Fragment_Food()).commit();
-                getSupportActionBar().setTitle(R.string.nav_Food);
+                        .replace(R.id.content_frame, new Fragment_Food())
+                        .addToBackStack(null).commit();
                 break;
 
             case (R.id.nav_mvv):
             case (R.string.nav_Mvv):
 
                 fragmentManager.beginTransaction()
-                        .replace(R.id.content_frame, new Fragment_Mvv()).commit();
-                getSupportActionBar().setTitle(R.string.nav_Mvv);
+                        .replace(R.id.content_frame, new Fragment_Mvv())
+                        .addToBackStack(null).commit();
                 break;
 
             case (R.id.nav_fun):
             case (R.string.nav_Fun):
+
 
 
                 //fragmentManager.beginTransaction()
@@ -143,13 +179,19 @@ public class MainActivity extends AppCompatActivity
 
 
 
+
                 break;
 
             case (R.id.nav_maps):
             case (R.string.nav_GoogleMaps):
                 fragmentManager.beginTransaction()
-                        .replace(R.id.content_frame, new Fragment_PCRoom()).commit();
-                getSupportActionBar().setTitle(R.string.nav_GoogleMaps);
+                        .replace(R.id.content_frame, new Fragment_GoogleMaps())
+                        .addToBackStack(null).commit();
+                break;
+
+            case (R.integer.food_k6):
+                fragmentManager.beginTransaction()
+                        .replace(R.id.content_frame, new Fragment_GoogleMaps ()).commit();
                 break;
 
 

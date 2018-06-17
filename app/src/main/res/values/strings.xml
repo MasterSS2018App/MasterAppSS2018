@@ -19,14 +19,40 @@
     <string name="nav_GoogleMaps">Google Maps</string>
 
 
-    <!-- Actionbar Text -->
 
+    <!-- Food Text-->
     <string name="nav_McDonalds">McDonalds</string>
 
+    <integer name="food_k6">2</integer>
+
+
 
     <!-- Actionbar Text -->
+    <string name="actionText_HomeText">Wo willst du hin?</string>
 
-    <string name="actionText_HomeText">"Wo willst du hin?</string>
+    <!-- Tab Names -->
+    <string name="tabList">Freie Räume</string>
+    <string name="tabMap">Überischtskarte</string>
+
+    <!-- HM Map Button Text-->
+    <string name="radioUG">UG</string>
+    <string name="radioEG">EG</string>
+    <string name="radio1OG">OG-1</string>
+    <string name="radio2OG">OG-2</string>
+    <string name="radio3OG">OG-3</string>
+    <string name="radio4OG">OG-4</string>
+
+    <!-- DB Datenbank Parameter -->
+    <integer name="KindPcRoom">1</integer>
+    <integer name="KindClassRoom">2</integer>
+
+    <integer name="WeekDay_Monday">1</integer>
+    <integer name="WeekDay_Tuesday">2</integer>
+    <integer name="WeekDay_Wednesday">3</integer>
+    <integer name="WeekDay_Thursday">4</integer>
+    <integer name="WeekDay_Friday">5</integer>
+
+    <!-- Nightlife activity-->
     <string name="title_activity_nightlife">Map</string>
     <string name="title_activity__food__mcd">Map</string>
     <string name="title_activity__food__k6">Map</string>
@@ -34,4 +60,5 @@
     <string name="title_activity__food__bk">Map</string>
     <string name="title_activity__food__sub_way">Map</string>
     <string name="title_activity__food__losteria">Map</string>
+
 </resources>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:background="@color/colorBackground">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </android.support.design.widget.AppBarLayout>
+
+    <TextClock
+        android:id="@+id/clockPC"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:format24Hour="kk:mm"
+        android:timeZone="Europe/Berlin"
+        android:gravity="top"
+        android:textAlignment="center"
+        android:textColor="@color/TabIndexer"
+        android:textSize="80sp"
+        android:visibility="visible"
+        />
+
+    <TextClock
+        android:id="@+id/datePC"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:format12Hour="EEEE, dd. MMMM yy"
+        android:timeZone="Europe/Berlin"
+        android:gravity="top"
+        android:textAlignment="center"
+        android:textColor="@color/TabIndexer"
+        android:textSize="18sp"
+        android:visibility="visible" />
+
+    <ListView
+        android:id="@+id/lst_pc"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </ListView>
+
+</LinearLayout>

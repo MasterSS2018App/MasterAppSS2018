@@ -1,6 +1,6 @@
 package com.hm_master.masterapp;
 
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -15,6 +15,7 @@ public class Fragment_GoogleMaps extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
         myView = inflater.inflate(R.layout.layout_bib,container,false);
+        MainActivity.Instance.getSupportActionBar().setTitle(R.string.nav_GoogleMaps);
         return myView;
     }
 }

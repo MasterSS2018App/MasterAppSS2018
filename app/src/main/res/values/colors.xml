@@ -2,6 +2,16 @@
 <resources>
     <color name="colorPrimary">#585858</color>
     <color name="colorPrimaryDark">#212121</color>
+    <color name="colorPrimaryBright">#7e7e7e</color>
     <color name="colorAccent">#ff0057</color>
     <color name="colorBackground">#585858</color>
+    <color name="colorButtonText">#ffffff</color>
+
+    <!-- Tabindexer Markierung -->
+    <color name="TabIndexer">#dcdcdc</color>
+
+
+    <!-- List Entry -->
+    <color name="colorEntryRoom">#ffffff</color>
+    <color name="colorEntryDetails">#bfbfbf</color>
 </resources>

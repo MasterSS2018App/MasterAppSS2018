@@ -1,8 +1,8 @@
 package com.hm_master.masterapp;
 
-import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +15,7 @@ public class Fragment_Classroom extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
         myView = inflater.inflate(R.layout.layout_classroom,container,false);
+        MainActivity.Instance.getSupportActionBar().setTitle(R.string.nav_Classroom);
         return myView;
     }
 }

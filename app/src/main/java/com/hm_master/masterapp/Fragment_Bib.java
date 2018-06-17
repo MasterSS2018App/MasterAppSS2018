@@ -1,8 +1,8 @@
 package com.hm_master.masterapp;
 
-import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +17,9 @@ public class Fragment_Bib extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
         View v= inflater.inflate(R.layout.layout_bib,container,false);
+        MainActivity.Instance.getSupportActionBar().setTitle(R.string.nav_Library);
+
+
         WebView webView= (WebView)v.findViewById(R.id.webViewbib);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setWebViewClient(new WebViewClient());
