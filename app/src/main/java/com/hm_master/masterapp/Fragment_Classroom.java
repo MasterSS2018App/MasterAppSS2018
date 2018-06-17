@@ -15,6 +15,7 @@ public class Fragment_Classroom extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
         myView = inflater.inflate(R.layout.layout_classroom,container,false);
+        MainActivity.Instance.getSupportActionBar().setTitle(R.string.nav_Classroom);
         return myView;
     }
 }

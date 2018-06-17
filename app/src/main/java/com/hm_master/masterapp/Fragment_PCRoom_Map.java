@@ -6,23 +6,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class Fragment_PCRoom extends Fragment {
+public class Fragment_PCRoom_Map extends Fragment {
+    View myView;
 
-    private static View myVIew;
-    private com.hm_master.masterapp.FragmentTabHost mTabHost;
+    private FragmentTabHost mTabHost;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        if (myVIew == null) {
-            myVIew = inflater.inflate(R.layout.layout_pcroom, container, false);
+        if (myView == null) {
+            myView = inflater.inflate(R.layout.layout_pcroom_list, container, false);
 
-            mTabHost = (FragmentTabHost) myVIew.findViewById(android.R.id.tabhost);
-            mTabHost.setup(MainActivity.Instance, getChildFragmentManager(), R.id.realtabcontent);
+            mTabHost = (FragmentTabHost) myView.findViewById(android.R.id.tabhost);
+            mTabHost.setup(getActivity(), getChildFragmentManager(), R.id.realtabcontent);
 
             mTabHost.addTab(mTabHost.newTabSpec("tab1").setIndicator("Tab1"), Fragment_PCRoom_List.class, null);
             mTabHost.addTab(mTabHost.newTabSpec("tab2").setIndicator("Tab2"), Fragment_PCRoom_Map.class, null);
         }
-        return myVIew;
+        return myView;
     }
 
     public static Fragment_PCRoom newInstance() {

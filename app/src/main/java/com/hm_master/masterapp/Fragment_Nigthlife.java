@@ -15,6 +15,7 @@ public class Fragment_Nigthlife extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
         myView = inflater.inflate(R.layout.layout_nightlife,container,false);
+        MainActivity.Instance.getSupportActionBar().setTitle(R.string.nav_Fun);
         return myView;
     }
 }
