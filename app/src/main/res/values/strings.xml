@@ -1,4 +1,14 @@
 <resources>
+    <!-- Stucafe Locations-->
+    <string-array name="Autoren">
+        <item>Baur Matthias</item>
+        <item>Koch Andreas</item>
+        <item>Reitenhardt  Matthias</item>
+        <item>Uth Phillip</item>
+    </string-array>
+    <string name="Impressum">%s wurde erstellt von:\n\n%s\n%s\n%s\n%s</string>
+    <!-- K6 Locations-->
+
     <string name="app_name">Masterappus</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -17,6 +27,7 @@
     <string name="nav_Mvv">MVV-MVG</string>
     <string name="nav_Fun">Nightlife</string>
     <string name="nav_GoogleMaps">Google Maps</string>
+    <string name="nav_Imperssum">Imperssum</string>
 
     <string name="SQLite_TimeFormat">EEEE dd.MMMM yy HH:MM</string>
 

@@ -214,6 +214,24 @@ public class MainActivity extends AppCompatActivity
                         .addToBackStack(null).commit();
                 SetOwnPosition(true);
                 break;
+
+            case (R.id.nav_imperssum):
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Instance);
+
+                String[] autoren = getResources().getStringArray(R.array.Autoren);
+                String appName = getResources().getString(R.string.app_name);
+                String alertText = getResources().getString(R.string.Impressum,
+                        appName,autoren[0], autoren[1], autoren[2], autoren[3]);
+
+                alertDialogBuilder.setMessage(alertText).setPositiveButton("Danke", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                });
+
+                AlertDialog alertDialog = alertDialogBuilder.create();
+                alertDialog.show();
+                break;
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
