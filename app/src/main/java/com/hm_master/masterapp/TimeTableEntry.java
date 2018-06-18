@@ -250,15 +250,15 @@ public class TimeTableEntry {
         int dayOfWeek = c.get(Calendar.DAY_OF_WEEK); // this will for example return 3 for tuesday
 
         switch (dayOfWeek) {
-            case (1):
-                return R.integer.WeekDay_Monday;
             case (2):
-                return R.integer.WeekDay_Tuesday;
+                return R.integer.WeekDay_Monday;
             case (3):
-                return R.integer.WeekDay_Wednesday;
+                return R.integer.WeekDay_Tuesday;
             case (4):
-                return R.integer.WeekDay_Thursday;
+                return R.integer.WeekDay_Wednesday;
             case (5):
+                return R.integer.WeekDay_Thursday;
+            case (6):
                 return R.integer.WeekDay_Friday;
 
             default:

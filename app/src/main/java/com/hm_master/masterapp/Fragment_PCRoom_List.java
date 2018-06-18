@@ -55,7 +55,7 @@ public class Fragment_PCRoom_List extends Fragment {
 
          // Test Tag 19.06.2018
 
-        String selectedDateString = "19.06.2018 10:37";
+        String selectedDateString = "20.06.2018 10:37";
         SimpleDateFormat testFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm");
         try {
             selectedDate  = testFormat.parse(selectedDateString);
