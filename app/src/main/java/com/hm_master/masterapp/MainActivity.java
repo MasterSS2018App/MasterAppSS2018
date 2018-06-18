@@ -1,12 +1,16 @@
 package com.hm_master.masterapp;
 
+import android.Manifest;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 
+import android.content.pm.PackageManager;
+import android.location.LocationListener;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -28,13 +32,17 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.security.Permission;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener,OnMapReadyCallback {
+        implements NavigationView.OnNavigationItemSelectedListener, OnMapReadyCallback {
+
+    public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
+
 
     public static Toolbar toolbar;
     public static MainActivity Instance;
@@ -42,6 +50,7 @@ public class MainActivity extends AppCompatActivity
     public static DatabaseHelper SqLiteDB;
     private GoogleMap mMap;
     private List<String[]> mapLocations;
+    private boolean ShowOnLoaction = false;
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -91,8 +100,8 @@ public class MainActivity extends AppCompatActivity
         MainActivity.Instance.onNavigationItemSelected(item);
 
         //Debugging
-        //MenuItem item2 = MainActivity.navigationView.getMenu().findItem(R.id.nav_food);
-        //MainActivity.Instance.onNavigationItemSelected(item2);
+        MenuItem item2 = MainActivity.navigationView.getMenu().findItem(R.id.nav_maps);
+        MainActivity.Instance.onNavigationItemSelected(item2);
 
     }
 
@@ -198,6 +207,7 @@ public class MainActivity extends AppCompatActivity
                 fragmentManager.beginTransaction()
                         .replace(R.id.content_frame, new Fragment_GoogleMaps())
                         .addToBackStack(null).commit();
+                SetOwnPosition(true);
                 break;
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -212,7 +222,7 @@ public class MainActivity extends AppCompatActivity
         float zoomLevel = (float) 16.0;
         LatLng location = new LatLng(48.142659, 11.568068);
 
-        for (String[] locationArray:mapLocations) {
+        for (String[] locationArray : mapLocations) {
             String name = locationArray[0];
             double lat = Double.parseDouble(locationArray[1]);
             double lon = Double.parseDouble(locationArray[2]);
@@ -220,7 +230,13 @@ public class MainActivity extends AppCompatActivity
             mMap.addMarker(new MarkerOptions().position(location).title(name));
         }
 
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location,zoomLevel));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, zoomLevel));
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+           this.requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.ACCESS_FINE_LOCATION}, MY_PERMISSIONS_REQUEST_LOCATION);
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED)
+                return;
+        }
+        mMap.setMyLocationEnabled(ShowOnLoaction);
 
     }
 
@@ -228,8 +244,8 @@ public class MainActivity extends AppCompatActivity
 
         mapLocations.clear();
         mapLocations.add(nameLatLon);
-
-        if(mMap == null){
+        ShowOnLoaction = false;
+        if (mMap == null) {
             return;
         }
 
@@ -239,17 +255,18 @@ public class MainActivity extends AppCompatActivity
         String name = nameLatLon[0];
         double lat = Double.parseDouble(nameLatLon[1]);
         double lon = Double.parseDouble(nameLatLon[2]);
-        LatLng loaction= new LatLng(lat, lon);
+        LatLng loaction = new LatLng(lat, lon);
 
         mMap.addMarker(new MarkerOptions().position(loaction).title(name));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(loaction,zoomLevel));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(loaction, zoomLevel));
+
     }
 
     public void addMarker(String[] nameLatLon) {
 
         mapLocations.add(nameLatLon);
 
-        if(mMap == null){
+        if (mMap == null) {
             return;
         }
 
@@ -260,7 +277,16 @@ public class MainActivity extends AppCompatActivity
         LatLng location = new LatLng(lat, lon);
         mMap.addMarker(new MarkerOptions().position(location).title(name));
         float zoomLevel = (float) 14.0;
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location,zoomLevel));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, zoomLevel));
+    }
+
+    public static void SetOwnPosition(boolean setLocation) {
+        if (Instance == null)
+            return;
+
+        Instance.ShowOnLoaction = setLocation;
+        //48.1414882 11.5706108,
     }
 }
+
 
