@@ -51,9 +51,10 @@ public class Fragment_PCRoom_List extends Fragment {
         textClock = myView.findViewById(R.id.clockPC);
         textDate = myView.findViewById(R.id.datePC);
 
-        //String selectedDateString = currentTime.getTime();
+        //selectedDate  = currentTime.getTime();
 
          // Test Tag 19.06.2018
+
         String selectedDateString = "19.06.2018 10:37";
         SimpleDateFormat testFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm");
         try {

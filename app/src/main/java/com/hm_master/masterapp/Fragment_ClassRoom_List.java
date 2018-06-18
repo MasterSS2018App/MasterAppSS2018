@@ -42,15 +42,18 @@ public class Fragment_ClassRoom_List extends Fragment {
         textClock = myView.findViewById(R.id.clockClass);
         textDate = myView.findViewById(R.id.dateClass);
 
-        //String selectedDateString = currentTime.getTime();
+        //selectedDate = currentTime.getTime();
 
          // Test Tag 19.06.2018
+
         String selectedDateString = "19.06.2018 10:37";
+
         SimpleDateFormat testFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm");
         try {
             selectedDate  = testFormat.parse(selectedDateString);
         }
         catch (Exception ex){}
+
 
         String time = TimeTableEntry.FULL_CLOCK_FORMAT.format(selectedDate);
         String tdate = TimeTableEntry.FULL_DATE_FORMAT.format(selectedDate);

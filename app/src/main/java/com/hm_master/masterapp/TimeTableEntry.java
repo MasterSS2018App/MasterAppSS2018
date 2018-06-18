@@ -107,7 +107,10 @@ public class TimeTableEntry {
         double timeNow = HourNow + MinNow/60;
 
         Calendar cal = Calendar.getInstance();
-        cal.setTime(Start);
+        if(isFree)
+            cal.setTime(Start);
+        else
+            cal.setTime(End);
         double HourNext = cal.get(Calendar.HOUR_OF_DAY);
         double MinNext = cal.get(Calendar.MINUTE);
         double timeNext = HourNext + MinNext/60;
@@ -129,9 +132,9 @@ public class TimeTableEntry {
         else
         {
             if (elapsedHours < 1) {
-                duration = MainActivity.Instance.getResources().getString(R.string.entry_duration_min_future, elapsedMinutes*-1);
+                duration = MainActivity.Instance.getResources().getString(R.string.entry_duration_min_future, elapsedMinutes);
             } else {
-                duration = MainActivity.Instance.getResources().getString(R.string.entry_duration_std_min_future, elapsedHours*-1, elapsedMinutes*-1);
+                duration = MainActivity.Instance.getResources().getString(R.string.entry_duration_std_min_future, elapsedHours, elapsedMinutes);
             }
         }
     return  duration;

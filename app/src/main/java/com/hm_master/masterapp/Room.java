@@ -53,7 +53,7 @@ public class Room {
         if (isFree)
             return MainActivity.Instance.getResources().getString(R.string.entry_time_free, timeStart);
         else
-            return MainActivity.Instance.getResources().getString(R.string.entry_time_future, timeStart,timeEnd);
+            return MainActivity.Instance.getResources().getString(R.string.entry_time_future, timeEnd);
     }
 
     public static List<Room> GetRooms(int kind, Date date){

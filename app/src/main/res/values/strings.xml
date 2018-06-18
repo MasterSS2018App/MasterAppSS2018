@@ -73,7 +73,7 @@
     <string name="entry_duration_std_min_future">In %d Std %d Min frei</string>
     <string name="entry_duration_min_future">In %d Min frei</string>
     <string name="entry_time_free">Bis %s Uhr frei</string>
-    <string name="entry_time_future">Ab %s Uhr bis %s Uhr frei</string>
+    <string name="entry_time_future">Ab %s Uhr wieder frei</string>
     <string name="entry_duration_string_noMoreEvents">Rest des Tages frei</string>
     <string name="entry_time_string_noMoreEvents">...</string>
     <string name="time_string_now">%1$d%2$d</string>
@@ -100,7 +100,7 @@
 
 
     <!-- Warning if GPS is deaktivatet-->
-    <string name="GPSDeaktivated">"GPS ausgeschaltet. Standort kann nicht Angezeigt werden!</string>
+    <string name="GPSDeaktivated">"GPS ausgeschaltet. Standort kann nicht angezeigt werden!</string>
 
     <!-- HM Locations-->
     <string-array name="location_HM">
