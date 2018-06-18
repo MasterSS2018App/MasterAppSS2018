@@ -53,7 +53,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/mcdonalds_runde_ecken_156"
-        android:text="@string/Food_BK"
+        android:text="@string/Food_MCD"
         android:textColor="@color/colorButtonText"
         android:textSize="24sp"
         android:textStyle="bold"
