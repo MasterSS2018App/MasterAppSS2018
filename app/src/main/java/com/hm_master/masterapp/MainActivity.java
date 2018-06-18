@@ -105,8 +105,8 @@ public class MainActivity extends AppCompatActivity
         MainActivity.Instance.onNavigationItemSelected(item);
 
         //Debugging
-        MenuItem item2 = MainActivity.navigationView.getMenu().findItem(R.id.nav_maps);
-        MainActivity.Instance.onNavigationItemSelected(item2);
+        //MenuItem item2 = MainActivity.navigationView.getMenu().findItem(R.id.nav_maps);
+        //MainActivity.Instance.onNavigationItemSelected(item2);
 
     }
 
