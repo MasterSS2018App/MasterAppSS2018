@@ -2,12 +2,17 @@ package com.hm_master.masterapp;
 
 import android.Manifest;
 import android.app.AlarmManager;
+import android.app.AlertDialog;
 import android.app.PendingIntent;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 
 import android.content.pm.PackageManager;
+import android.location.Location;
 import android.location.LocationListener;
+import android.location.LocationManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
@@ -43,6 +48,7 @@ public class MainActivity extends AppCompatActivity
 
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
 
+    private boolean AlertAlreadyShown = false;
 
     public static Toolbar toolbar;
     public static MainActivity Instance;
@@ -94,7 +100,6 @@ public class MainActivity extends AppCompatActivity
         AlarmManager alarm = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         alarm.cancel(pendingIntent);
         alarm.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), 1000 * 60, pendingIntent);
-
 
         MenuItem item = MainActivity.navigationView.getMenu().findItem(R.id.nav_home);
         MainActivity.Instance.onNavigationItemSelected(item);
@@ -230,20 +235,31 @@ public class MainActivity extends AppCompatActivity
             mMap.addMarker(new MarkerOptions().position(location).title(name));
         }
 
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, zoomLevel));
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-           this.requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.ACCESS_FINE_LOCATION}, MY_PERMISSIONS_REQUEST_LOCATION);
-            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED)
-                return;
-        }
-        mMap.setMyLocationEnabled(ShowOnLoaction);
 
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, zoomLevel));
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED)
+                return;
+
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            this.requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION}, MY_PERMISSIONS_REQUEST_LOCATION);
+
+        }
+
+
+        mMap.setMyLocationEnabled(ShowOnLoaction);
     }
 
     public void changeMapMarker(String[] nameLatLon) {
 
         mapLocations.clear();
-        mapLocations.add(nameLatLon);
+        if (nameLatLon != null)
+            mapLocations.add(nameLatLon);
+
         ShowOnLoaction = false;
         if (mMap == null) {
             return;
@@ -251,7 +267,6 @@ public class MainActivity extends AppCompatActivity
 
         float zoomLevel = (float) 16.0;
 
-        String[] locationHMArray = getResources().getStringArray(R.array.location_HM);
         String name = nameLatLon[0];
         double lat = Double.parseDouble(nameLatLon[1]);
         double lon = Double.parseDouble(nameLatLon[2]);
@@ -262,12 +277,12 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-    public void addMarker(String[] nameLatLon) {
+    public int addMarker(String[] nameLatLon) {
 
         mapLocations.add(nameLatLon);
 
         if (mMap == null) {
-            return;
+            return -1;
         }
 
         String name = nameLatLon[0];
@@ -278,14 +293,51 @@ public class MainActivity extends AppCompatActivity
         mMap.addMarker(new MarkerOptions().position(location).title(name));
         float zoomLevel = (float) 14.0;
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, zoomLevel));
+
+        return mapLocations.size() - 1;
+    }
+
+    public void changeMarker(int pos, String[] nameLatLon) {
+        if (mapLocations.size() == 0)
+            return;
+
+        mapLocations.set(pos, nameLatLon);
+
+        if (mMap != null) {
+            mMap.clear();
+            for (String[] postion :
+                    mapLocations) {
+                addMarker(postion);
+            }
+        }
     }
 
     public static void SetOwnPosition(boolean setLocation) {
         if (Instance == null)
             return;
 
+        LocationManager locationManager = (LocationManager) Instance.getSystemService(Context.LOCATION_SERVICE);
+
         Instance.ShowOnLoaction = setLocation;
-        //48.1414882 11.5706108,
+
+        if (setLocation && !Instance.AlertAlreadyShown)
+            // Testen, ob GPS verfgbar
+            try {
+                if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+                    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Instance);
+
+                    alertDialogBuilder.setMessage(R.string.GPSDeaktivated).setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                        }
+                    });
+
+                    AlertDialog alertDialog = alertDialogBuilder.create();
+                    alertDialog.show();
+                    Instance.AlertAlreadyShown = true;
+                }
+            } catch (Exception ex) {
+            }
     }
 }
 

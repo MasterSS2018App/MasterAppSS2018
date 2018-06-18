@@ -7,90 +7,14 @@
     android:background="@color/colorBackground">
 
     <ImageView
-        android:id="@+id/imageHmMap_OG4"
-        android:layout_width="0dp"
-        android:layout_height="424dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="4dp"
-        android:src="@drawable/og4hm"
-        android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@+id/RadioGroupHmMap"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
-
-    <ImageView
-        android:id="@+id/imageHmMap_OG3"
-        android:layout_width="0dp"
-        android:layout_height="424dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="4dp"
-        android:src="@drawable/og3hm"
-        android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@+id/RadioGroupHmMap"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageHmMap_UG"
-        android:layout_width="0dp"
-        android:layout_height="424dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="4dp"
-        android:src="@drawable/ughm"
-        android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@+id/RadioGroupHmMap"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageHmMap_OG2"
-        android:layout_width="0dp"
-        android:layout_height="424dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="4dp"
-        android:src="@drawable/og2hm"
-        android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@+id/RadioGroupHmMap"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageHmMap_OG1"
-        android:layout_width="0dp"
-        android:layout_height="424dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="4dp"
-        android:src="@drawable/og1hm"
-        android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@+id/RadioGroupHmMap"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageHmMap_EG"
+        android:id="@+id/imageHmMap"
         android:layout_width="0dp"
         android:layout_height="424dp"
         android:layout_marginEnd="4dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="4dp"
         android:src="@drawable/eghm"
-        android:visibility="invisible"
+        android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/RadioGroupHmMap"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

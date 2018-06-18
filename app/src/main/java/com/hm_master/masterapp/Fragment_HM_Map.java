@@ -20,24 +20,14 @@ public class Fragment_HM_Map extends Fragment {
     RadioButton radioOG3;
     RadioButton radioOG4;
 
-    ImageView hmMapUG;
-    ImageView hmMapEG;
-    ImageView hmMapOG1;
-    ImageView hmMapOG2;
-    ImageView hmMapOG3;
-    ImageView hmMapOG4;
+    ImageView hmMap;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         if (myView == null)
             myView = inflater.inflate(R.layout.layout_hm_map,container,false);
 
-        hmMapUG = myView.findViewById(R.id.imageHmMap_UG);
-        hmMapEG = myView.findViewById(R.id.imageHmMap_EG);
-        hmMapOG1 = myView.findViewById(R.id.imageHmMap_OG1);
-        hmMapOG2 = myView.findViewById(R.id.imageHmMap_OG2);
-        hmMapOG3 = myView.findViewById(R.id.imageHmMap_OG3);
-        hmMapOG4 = myView.findViewById(R.id.imageHmMap_OG4);
+        hmMap = myView.findViewById(R.id.imageHmMap);
 
 
         radioGroup = myView.findViewById(R.id.RadioGroupHmMap);
@@ -85,34 +75,41 @@ public class Fragment_HM_Map extends Fragment {
             }
         });
 
-
-        hmMapEG.setVisibility(GetVisibility(true));
+        radioEG.performClick();
 
         return myView;
     }
 
     private void RadioButttonWasClicked(int id) {
+
         radioUG.setChecked(id == radioUG.getId());
-         radioEG.setChecked(id == radioEG.getId());
-         radioOG1.setChecked(id == radioOG1.getId());
-         radioOG2.setChecked(id == radioOG2.getId());
-         radioOG3.setChecked(id == radioOG3.getId());
-         radioOG4.setChecked(id == radioOG4.getId());
+        radioEG.setChecked(id == radioEG.getId());
+        radioOG1.setChecked(id == radioOG1.getId());
+        radioOG2.setChecked(id == radioOG2.getId());
+        radioOG3.setChecked(id == radioOG3.getId());
+        radioOG4.setChecked(id == radioOG4.getId());
 
-        hmMapUG = myView.findViewById(R.id.imageHmMap_UG);
-        hmMapEG = myView.findViewById(R.id.imageHmMap_EG);
-        hmMapOG1 = myView.findViewById(R.id.imageHmMap_OG1);
-        hmMapOG2 = myView.findViewById(R.id.imageHmMap_OG2);
-        hmMapOG3 = myView.findViewById(R.id.imageHmMap_OG3);
-        hmMapOG4 = myView.findViewById(R.id.imageHmMap_OG4);
-
-        hmMapUG.setVisibility(GetVisibility(id==radioUG.getId()));
-        hmMapEG.setVisibility(GetVisibility(id==radioEG.getId()));
-        hmMapOG1.setVisibility(GetVisibility(id==radioOG1.getId()));
-        hmMapOG2.setVisibility(GetVisibility(id==radioOG2.getId()));
-        hmMapOG3.setVisibility(GetVisibility(id==radioOG3.getId()));
-        hmMapOG4.setVisibility(GetVisibility(id==radioOG4.getId()));
-
+        switch (id) {
+            case (R.id.radioUG):
+                hmMap.setImageResource(R.drawable.ughm);
+                break;
+            case (R.id.radioOG1):
+                hmMap.setImageResource(R.drawable.og1hm);
+                break;
+            case (R.id.radioOG2):
+                hmMap.setImageResource(R.drawable.og2hm);
+                break;
+            case (R.id.radioOG3):
+                hmMap.setImageResource(R.drawable.og3hm);
+                break;
+            case (R.id.radioOG4):
+                hmMap.setImageResource(R.drawable.og4hm);
+                break;
+            case (R.id.radioEG):
+            default:
+                hmMap.setImageResource(R.drawable.eghm);
+                break;
+        }
 
     }
 

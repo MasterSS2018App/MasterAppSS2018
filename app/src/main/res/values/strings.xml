@@ -6,7 +6,7 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
-
+    <string name="drawer_headerText">Geomatik 2018</string>
 
     <!-- Navigation Drawer menu labels -->
     <string name="nav_Home">Home</string>
@@ -86,6 +86,10 @@
     <string name="title_activity__food__sub_way">Map</string>
     <string name="title_activity__food__losteria">Map</string>
     <string name="title_activity_maps_activityasd">Map</string>
+
+
+    <!-- Warning if GPS is deaktivatet-->
+    <string name="GPSDeaktivated">"GPS ausgeschaltet. Standort kann nicht Angezeigt werden!</string>
 
     <!-- HM Locations-->
     <string-array name="location_HM">
