@@ -90,22 +90,28 @@ public class Fragment_HM_Map extends Fragment {
          switch (id){
 
              case(R.id.radioUG):
+                 hmMap.setBackground(null);
                  hmMap.setImageResource(R.drawable.ughm);
                  break;
              case(R.id.radioOG1):
+                 hmMap.setBackground(null);
                  hmMap.setImageResource(R.drawable.og1hm);
                  break;
              case(R.id.radioOG2):
+                 hmMap.setBackground(null);
                  hmMap.setImageResource(R.drawable.og2hm);
                  break;
              case(R.id.radioOG3):
+                 hmMap.setBackground(null);
                  hmMap.setImageResource(R.drawable.og3hm);
                  break;
              case(R.id.radioOG4):
+                 hmMap.setBackground(null);
                  hmMap.setImageResource(R.drawable.og4hm);
                  break;
              case(R.id.radioEG):
              default:
+                 hmMap.setBackground(null);
                  hmMap.setImageResource(R.drawable.eghm);
                  break;
          }
